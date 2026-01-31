@@ -250,6 +250,26 @@
             animation: glowFlash 5s ease-in-out infinite;
         }
 
+        /* Typewriter cursor animation */
+        .typewriter-cursor {
+            display: inline-block;
+            animation: blink 1s step-end infinite;
+            margin-left: 4px;
+        }
+
+        @keyframes blink {
+
+            0%,
+            50% {
+                opacity: 1;
+            }
+
+            51%,
+            100% {
+                opacity: 0;
+            }
+        }
+
         .platform-icon:nth-child(1) .genie-glow {
             animation-delay: 0s;
         }
@@ -376,10 +396,10 @@
                     </div>
 
                     <h1 class="font-display text-5xl lg:text-7xl font-bold tracking-tight leading-tight">
-                        <span class="block text-gray-900 dark:text-white">Projektuję</span>
-                        <span
-                            class="block text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">Koduję</span>
-                        <span class="block text-gray-900 dark:text-white">Wdrażam</span>
+                        <span class="block text-gray-900 dark:text-white">
+                            <span id="typewriterText"></span>
+                            <span class="typewriter-cursor">|</span>
+                        </span>
                     </h1>
 
                     <div class="text-lg text-gray-600 dark:text-gray-400 font-mono space-y-2 max-w-lg">
@@ -450,14 +470,8 @@
                                 <!-- Code Overlay - Top Left -->
                                 <div
                                     class="absolute top-4 left-4 text-xs font-mono text-white/90 space-y-1 bg-black/40 backdrop-blur-sm p-3 rounded">
-                                    <p><span class="text-purple-400">import</span> <span
-                                            class="text-yellow-300">Developer</span> <span
-                                            class="text-purple-400">from</span> <span
-                                            class="text-green-400">'@fl45/core'</span>;</p>
-                                    <p><span class="text-purple-400">import</span> <span
-                                            class="text-yellow-300">Skills</span> <span
-                                            class="text-purple-400">from</span> <span
-                                            class="text-green-400">'./skills'</span>;</p>
+                                    <p id="codeLine1"></p>
+                                    <p id="codeLine2"></p>
                                 </div>
 
                                 <!-- Terminal Output Overlay - Bottom -->
@@ -734,6 +748,149 @@
 
         // Add click listener
         themeToggle.addEventListener('click', toggleTheme);
+
+        // Typewriter effect for hero slogan
+        (function () {
+            const typewriterElement = document.getElementById('typewriterText');
+            if (!typewriterElement) return;
+
+            const words = ['Projektuję', 'Koduję', 'Wdrażam'];
+            let wordIndex = 0;
+            let charIndex = 0;
+            let isDeleting = false;
+            let typingSpeed = 150;
+
+            function type() {
+                const currentWord = words[wordIndex];
+
+                if (isDeleting) {
+                    // Usuwanie znaków
+                    typewriterElement.textContent = currentWord.substring(0, charIndex - 1);
+                    charIndex--;
+                    typingSpeed = 50;
+                } else {
+                    // Wpisywanie znaków
+                    typewriterElement.textContent = currentWord.substring(0, charIndex + 1);
+                    charIndex++;
+                    typingSpeed = 150;
+                }
+
+                // Gdy skończymy wpisywać słowo
+                if (!isDeleting && charIndex === currentWord.length) {
+                    typingSpeed = 2000; // Czekaj 2 sekundy
+                    isDeleting = true;
+                }
+                // Gdy skończymy usuwać słowo
+                else if (isDeleting && charIndex === 0) {
+                    isDeleting = false;
+                    wordIndex = (wordIndex + 1) % words.length; // Następne słowo
+                    typingSpeed = 500; // Krótka przerwa przed następnym słowem
+                }
+
+                setTimeout(type, typingSpeed);
+            }
+
+            // Start animation
+            type();
+        })();
+
+        // Code typing animation for VS Code mockup
+        (function () {
+            const codeLine1 = document.getElementById('codeLine1');
+            const codeLine2 = document.getElementById('codeLine2');
+
+            if (!codeLine1 || !codeLine2) return;
+
+            // Code lines to type
+            const lines = [
+                {
+                    element: codeLine1,
+                    parts: [
+                        { text: 'import', color: 'text-purple-400' },
+                        { text: ' ', color: '' },
+                        { text: 'Developer', color: 'text-yellow-300' },
+                        { text: ' ', color: '' },
+                        { text: 'from', color: 'text-purple-400' },
+                        { text: ' ', color: '' },
+                        { text: "'@fl45/core'", color: 'text-green-400' },
+                        { text: ';', color: '' }
+                    ]
+                },
+                {
+                    element: codeLine2,
+                    parts: [
+                        { text: 'import', color: 'text-purple-400' },
+                        { text: ' ', color: '' },
+                        { text: 'Skills', color: 'text-yellow-300' },
+                        { text: ' ', color: '' },
+                        { text: 'from', color: 'text-purple-400' },
+                        { text: ' ', color: '' },
+                        { text: "'./skills'", color: 'text-green-400' },
+                        { text: ';', color: '' }
+                    ]
+                }
+            ];
+
+            let currentLine = 0;
+            let currentPart = 0;
+            let currentChar = 0;
+
+            function typeCode() {
+                if (currentLine >= lines.length) {
+                    // Animation complete, restart after delay
+                    setTimeout(() => {
+                        codeLine1.innerHTML = '';
+                        codeLine2.innerHTML = '';
+                        currentLine = 0;
+                        currentPart = 0;
+                        currentChar = 0;
+                        setTimeout(typeCode, 500);
+                    }, 5000); // Wait 5 seconds before restarting
+                    return;
+                }
+
+                const line = lines[currentLine];
+                const part = line.parts[currentPart];
+
+                if (currentChar < part.text.length) {
+                    // Clear and rebuild current line
+                    line.element.innerHTML = '';
+
+                    // Add all completed parts
+                    for (let i = 0; i < currentPart; i++) {
+                        const prevSpan = document.createElement('span');
+                        if (line.parts[i].color) prevSpan.className = line.parts[i].color;
+                        prevSpan.textContent = line.parts[i].text;
+                        line.element.appendChild(prevSpan);
+                    }
+
+                    // Add current part up to current character
+                    const currentSpan = document.createElement('span');
+                    if (part.color) currentSpan.className = part.color;
+                    currentSpan.textContent = part.text.substring(0, currentChar + 1);
+                    line.element.appendChild(currentSpan);
+
+                    currentChar++;
+                    setTimeout(typeCode, 50); // Speed: 50ms per character
+                } else {
+                    // Move to next part
+                    currentChar = 0;
+                    currentPart++;
+
+                    if (currentPart >= line.parts.length) {
+                        // Move to next line
+                        currentPart = 0;
+                        currentLine++;
+                        setTimeout(typeCode, 300); // Pause between lines
+                    } else {
+                        setTimeout(typeCode, 50);
+                    }
+                }
+            }
+
+            // Start typing after a short delay
+            setTimeout(typeCode, 1000);
+        })();
 
         // WebP sequence animation with crossfade loop with lazy loading
         (function () {
