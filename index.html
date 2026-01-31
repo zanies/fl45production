@@ -794,7 +794,7 @@
                                 class="material-icons-round text-green-500 text-sm mr-2">check</span> Szybkie ładowanie
                         </li>
                     </ul>
-                    <a href="#kontakt"
+                    <a href="#kontakt" onclick="selectPackage('Start')"
                         class="block w-full py-2 px-4 rounded border border-gray-300 dark:border-gray-700 text-center text-sm font-semibold hover:border-accent hover:text-accent transition-colors">Wybieram</a>
                 </div>
 
@@ -819,7 +819,7 @@
                                 class="material-icons-round text-green-500 text-sm mr-2">check</span> Integracje API
                         </li>
                     </ul>
-                    <a href="#kontakt"
+                    <a href="#kontakt" onclick="selectPackage('Standard')"
                         class="block w-full py-2 px-4 rounded border border-gray-300 dark:border-gray-700 text-center text-sm font-semibold hover:border-accent hover:text-accent transition-colors">Wybieram</a>
                 </div>
 
@@ -848,7 +848,7 @@
                                 class="material-icons-round text-green-500 text-sm mr-2">check</span> Natywna wydajność
                         </li>
                     </ul>
-                    <a href="#kontakt"
+                    <a href="#kontakt" onclick="selectPackage('Mobile')"
                         class="block w-full py-2 px-4 rounded bg-accent text-white text-center text-sm font-semibold hover:bg-blue-600 transition-colors">Wybieram</a>
                 </div>
 
@@ -874,7 +874,7 @@
                                 class="material-icons-round text-accent text-sm mr-2">auto_awesome</span> Dedykowane SLA
                         </li>
                     </ul>
-                    <a href="#kontakt"
+                    <a href="#kontakt" onclick="selectPackage('Pro')"
                         class="block w-full py-2 px-4 rounded border border-gray-300 dark:border-gray-700 text-center text-sm font-semibold hover:border-accent hover:text-accent transition-colors">Kontakt</a>
                 </div>
             </div>
@@ -1359,8 +1359,21 @@
                 observer.observe(element);
             });
         })();
+        // Select pricing package and scroll to contact form
+        function selectPackage(packageName) {
+            const messageField = document.getElementById('message');
+            if (messageField) {
+                messageField.value = `Dzień dobry, jestem zainteresowany pakietem: ${packageName}.\n\nProszę o więcej informacji.`;
+
+                // Add focus effect
+                setTimeout(() => {
+                    messageField.focus();
+                }, 100);
+            }
+        }
     </script>
 
 </body>
 
 </html>
+```
