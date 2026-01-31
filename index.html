@@ -395,10 +395,16 @@
                         <span class="text-xs font-mono text-gray-700 dark:text-gray-300">Dostępny na projekty</span>
                     </div>
 
-                    <h1 class="font-display text-5xl lg:text-7xl font-bold tracking-tight leading-tight">
+                    <h1 class="font-display text-5xl lg:text-7xl font-bold tracking-tight leading-tight"
+                        style="min-height: 15rem; height: auto;">
                         <span class="block text-gray-900 dark:text-white">
-                            <span id="typewriterText"></span>
-                            <span class="typewriter-cursor">|</span>
+                            <span id="line1Text"></span><span id="typingCursor" class="typewriter-cursor">|</span>
+                        </span>
+                        <span class="block text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
+                            <span id="line2Text"></span>
+                        </span>
+                        <span class="block text-gray-900 dark:text-white">
+                            <span id="line3Text"></span>
                         </span>
                     </h1>
 
@@ -749,56 +755,101 @@
         // Add click listener
         themeToggle.addEventListener('click', toggleTheme);
 
-        // Typewriter effect for hero slogan
+        // Typewriter effect for hero slogan (3 lines with moving cursor)
         (function () {
-            const typewriterElement = document.getElementById('typewriterText');
-            if (!typewriterElement) return;
+            const line1 = document.getElementById('line1Text');
+            const line2 = document.getElementById('line2Text');
+            const line3 = document.getElementById('line3Text');
+            const cursor = document.getElementById('typingCursor');
 
-            const words = ['Projektuję', 'Koduję', 'Wdrażam'];
-            let wordIndex = 0;
+            if (!line1 || !line2 || !line3 || !cursor) return;
+
+            const lines = [
+                { element: line1, text: 'Projektuję' },
+                { element: line2, text: 'Koduję' },
+                { element: line3, text: 'Wdrażam' }
+            ];
+
+            let currentLineIndex = 0;
             let charIndex = 0;
             let isDeleting = false;
-            let typingSpeed = 150;
+            let allLinesCompleted = false;
 
-            function type() {
-                const currentWord = words[wordIndex];
+            function moveCursor(lineIndex) {
+                // Usuń kursor z obecnego miejsca
+                cursor.remove();
 
-                if (isDeleting) {
-                    // Usuwanie znaków
-                    typewriterElement.textContent = currentWord.substring(0, charIndex - 1);
-                    charIndex--;
-                    typingSpeed = 50;
-                } else {
-                    // Wpisywanie znaków
-                    typewriterElement.textContent = currentWord.substring(0, charIndex + 1);
-                    charIndex++;
-                    typingSpeed = 150;
-                }
-
-                // Dodaj gradient dla "Koduję"
-                if (currentWord === 'Koduję') {
-                    typewriterElement.className = 'text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600';
-                } else {
-                    typewriterElement.className = '';
-                }
-
-                // Gdy skończymy wpisywać słowo
-                if (!isDeleting && charIndex === currentWord.length) {
-                    typingSpeed = 2000; // Czekaj 2 sekundy
-                    isDeleting = true;
-                }
-                // Gdy skończymy usuwać słowo
-                else if (isDeleting && charIndex === 0) {
-                    isDeleting = false;
-                    wordIndex = (wordIndex + 1) % words.length; // Następne słowo
-                    typingSpeed = 500; // Krótka przerwa przed następnym słowem
-                }
-
-                setTimeout(type, typingSpeed);
+                // Dodaj kursor po aktualnej linii
+                const targetLine = lines[lineIndex].element;
+                targetLine.parentElement.appendChild(cursor);
             }
 
-            // Start animation
-            type();
+            function type() {
+                const currentLine = lines[currentLineIndex];
+                const currentText = currentLine.text;
+
+                if (!allLinesCompleted) {
+                    // Faza wpisywania
+                    if (charIndex < currentText.length) {
+                        currentLine.element.textContent = currentText.substring(0, charIndex + 1);
+                        charIndex++;
+                        setTimeout(type, 150); // 150ms na znak
+                    } else {
+                        // Linia zakończona - poczekaj, potem przeskocz
+                        if (currentLineIndex < lines.length - 1) {
+                            // Pauza 2s przy obecnej linii
+                            setTimeout(() => {
+                                // Przejdź do następnej linii
+                                currentLineIndex++;
+                                charIndex = 0;
+                                moveCursor(currentLineIndex);
+                                // Od razu zacznij pisać (bez dodatkowej pauzy)
+                                type();
+                            }, 2000);
+                        } else {
+                            // Wszystkie linie ukończone
+                            allLinesCompleted = true;
+                            setTimeout(() => {
+                                isDeleting = true;
+                                currentLineIndex = lines.length - 1;
+                                charIndex = currentText.length;
+                                moveCursor(currentLineIndex);
+                                type();
+                            }, 2500); // Dłuższa pauza po ukończeniu
+                        }
+                    }
+                } else {
+                    // Faza kasowania
+                    if (isDeleting) {
+                        currentLine.element.textContent = currentText.substring(0, charIndex - 1);
+                        charIndex--;
+
+                        if (charIndex === 0) {
+                            // Linia skasowana
+                            if (currentLineIndex > 0) {
+                                // Przejdź do poprzedniej linii
+                                currentLineIndex--;
+                                charIndex = lines[currentLineIndex].text.length;
+                                moveCursor(currentLineIndex);
+                                setTimeout(type, 200);
+                            } else {
+                                // Wszystko skasowane, restart
+                                isDeleting = false;
+                                allLinesCompleted = false;
+                                currentLineIndex = 0;
+                                charIndex = 0;
+                                moveCursor(0);
+                                setTimeout(type, 800);
+                            }
+                        } else {
+                            setTimeout(type, 40);
+                        }
+                    }
+                }
+            }
+
+            // Start
+            setTimeout(type, 1000);
         })();
 
         // Code typing animation for VS Code mockup
