@@ -1,0 +1,111 @@
+[debug] [2026-01-31T17:41:13.079Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-01-31T17:41:13.080Z] > authorizing via signed-in user (zanies79@gmail.com)
+[debug] [2026-01-31T17:41:13.080Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-01-31T17:41:13.080Z] > authorizing via signed-in user (zanies79@gmail.com)
+[debug] [2026-01-31T17:41:13.081Z] Checked if tokens are valid: true, expires at: 1769883549848
+[debug] [2026-01-31T17:41:13.081Z] Checked if tokens are valid: true, expires at: 1769883549848
+[debug] [2026-01-31T17:41:13.081Z] Checked if tokens are valid: true, expires at: 1769883549848
+[debug] [2026-01-31T17:41:13.081Z] Checked if tokens are valid: true, expires at: 1769883549848
+[debug] [2026-01-31T17:41:13.081Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-01-31T17:41:13.081Z] > authorizing via signed-in user (zanies79@gmail.com)
+[debug] [2026-01-31T17:41:13.081Z] Checked if tokens are valid: true, expires at: 1769883549848
+[debug] [2026-01-31T17:41:13.081Z] Checked if tokens are valid: true, expires at: 1769883549848
+[debug] [2026-01-31T17:41:13.081Z] >>> [apiv2][query] GET https://cloudbilling.googleapis.com/v1/projects/tankpool-ocr/billingInfo [none]
+[debug] [2026-01-31T17:41:13.082Z] >>> [apiv2][query] GET https://cloudbilling.googleapis.com/v1/projects/tankpool-ocr/billingInfo [none]
+[debug] [2026-01-31T17:41:13.082Z] >>> [apiv2][query] GET https://cloudbilling.googleapis.com/v1/projects/tankpool-ocr/billingInfo [none]
+[debug] [2026-01-31T17:41:13.615Z] <<< [apiv2][status] GET https://cloudbilling.googleapis.com/v1/projects/tankpool-ocr/billingInfo 200
+[debug] [2026-01-31T17:41:13.615Z] <<< [apiv2][body] GET https://cloudbilling.googleapis.com/v1/projects/tankpool-ocr/billingInfo {"name":"projects/tankpool-ocr/billingInfo","projectId":"tankpool-ocr","billingAccountName":"","billingEnabled":false}
+[debug] [2026-01-31T17:41:13.620Z] Checked if tokens are valid: true, expires at: 1769883549848
+[debug] [2026-01-31T17:41:13.620Z] Checked if tokens are valid: true, expires at: 1769883549848
+[debug] [2026-01-31T17:41:13.620Z] Checked if tokens are valid: true, expires at: 1769883549848
+[debug] [2026-01-31T17:41:13.620Z] Checked if tokens are valid: true, expires at: 1769883549848
+[debug] [2026-01-31T17:41:13.629Z] Checked if tokens are valid: true, expires at: 1769883549848
+[debug] [2026-01-31T17:41:13.629Z] Checked if tokens are valid: true, expires at: 1769883549848
+[debug] [2026-01-31T17:41:13.629Z] Checked if tokens are valid: true, expires at: 1769883549848
+[debug] [2026-01-31T17:41:13.629Z] Checked if tokens are valid: true, expires at: 1769883549848
+[debug] [2026-01-31T17:41:13.629Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/tankpool-ocr/services/firebasedataconnect.googleapis.com [none]
+[debug] [2026-01-31T17:41:13.629Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/tankpool-ocr/services/firebasedataconnect.googleapis.com  x-goog-user-project=tankpool-ocr
+[debug] [2026-01-31T17:41:13.630Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/tankpool-ocr/services/cloudfunctions.googleapis.com [none]
+[debug] [2026-01-31T17:41:13.630Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/tankpool-ocr/services/cloudfunctions.googleapis.com  x-goog-user-project=tankpool-ocr
+[debug] [2026-01-31T17:41:13.631Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/tankpool-ocr/services/firebaseapphosting.googleapis.com [none]
+[debug] [2026-01-31T17:41:13.631Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/tankpool-ocr/services/firebaseapphosting.googleapis.com  x-goog-user-project=tankpool-ocr
+[debug] [2026-01-31T17:41:13.631Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/tankpool-ocr/services/firebaseio.com [none]
+[debug] [2026-01-31T17:41:13.631Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/tankpool-ocr/services/firebaseio.com  x-goog-user-project=tankpool-ocr
+[debug] [2026-01-31T17:41:13.676Z] <<< [apiv2][status] GET https://cloudbilling.googleapis.com/v1/projects/tankpool-ocr/billingInfo 200
+[debug] [2026-01-31T17:41:13.677Z] <<< [apiv2][body] GET https://cloudbilling.googleapis.com/v1/projects/tankpool-ocr/billingInfo {"name":"projects/tankpool-ocr/billingInfo","projectId":"tankpool-ocr","billingAccountName":"","billingEnabled":false}
+[debug] [2026-01-31T17:41:13.677Z] Checked if tokens are valid: true, expires at: 1769883549848
+[debug] [2026-01-31T17:41:13.677Z] Checked if tokens are valid: true, expires at: 1769883549848
+[debug] [2026-01-31T17:41:13.677Z] Checked if tokens are valid: true, expires at: 1769883549848
+[debug] [2026-01-31T17:41:13.677Z] Checked if tokens are valid: true, expires at: 1769883549848
+[debug] [2026-01-31T17:41:13.678Z] Checked if tokens are valid: true, expires at: 1769883549848
+[debug] [2026-01-31T17:41:13.678Z] Checked if tokens are valid: true, expires at: 1769883549848
+[debug] [2026-01-31T17:41:13.678Z] Checked if tokens are valid: true, expires at: 1769883549848
+[debug] [2026-01-31T17:41:13.679Z] Checked if tokens are valid: true, expires at: 1769883549848
+[debug] [2026-01-31T17:41:13.679Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/tankpool-ocr/services/firebasedataconnect.googleapis.com [none]
+[debug] [2026-01-31T17:41:13.679Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/tankpool-ocr/services/firebasedataconnect.googleapis.com  x-goog-user-project=tankpool-ocr
+[debug] [2026-01-31T17:41:13.679Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/tankpool-ocr/services/cloudfunctions.googleapis.com [none]
+[debug] [2026-01-31T17:41:13.679Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/tankpool-ocr/services/cloudfunctions.googleapis.com  x-goog-user-project=tankpool-ocr
+[debug] [2026-01-31T17:41:13.680Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/tankpool-ocr/services/firebaseapphosting.googleapis.com [none]
+[debug] [2026-01-31T17:41:13.680Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/tankpool-ocr/services/firebaseapphosting.googleapis.com  x-goog-user-project=tankpool-ocr
+[debug] [2026-01-31T17:41:13.680Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/tankpool-ocr/services/firebaseio.com [none]
+[debug] [2026-01-31T17:41:13.680Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/tankpool-ocr/services/firebaseio.com  x-goog-user-project=tankpool-ocr
+[debug] [2026-01-31T17:41:14.141Z] <<< [apiv2][status] GET https://cloudbilling.googleapis.com/v1/projects/tankpool-ocr/billingInfo 200
+[debug] [2026-01-31T17:41:14.142Z] <<< [apiv2][body] GET https://cloudbilling.googleapis.com/v1/projects/tankpool-ocr/billingInfo {"name":"projects/tankpool-ocr/billingInfo","projectId":"tankpool-ocr","billingAccountName":"","billingEnabled":false}
+[debug] [2026-01-31T17:41:14.143Z] Checked if tokens are valid: true, expires at: 1769883549848
+[debug] [2026-01-31T17:41:14.143Z] Checked if tokens are valid: true, expires at: 1769883549848
+[debug] [2026-01-31T17:41:14.143Z] Checked if tokens are valid: true, expires at: 1769883549848
+[debug] [2026-01-31T17:41:14.143Z] Checked if tokens are valid: true, expires at: 1769883549848
+[debug] [2026-01-31T17:41:14.148Z] Checked if tokens are valid: true, expires at: 1769883549848
+[debug] [2026-01-31T17:41:14.149Z] Checked if tokens are valid: true, expires at: 1769883549848
+[debug] [2026-01-31T17:41:14.149Z] Checked if tokens are valid: true, expires at: 1769883549848
+[debug] [2026-01-31T17:41:14.149Z] Checked if tokens are valid: true, expires at: 1769883549848
+[debug] [2026-01-31T17:41:14.149Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/tankpool-ocr/services/firebasedataconnect.googleapis.com [none]
+[debug] [2026-01-31T17:41:14.149Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/tankpool-ocr/services/firebasedataconnect.googleapis.com  x-goog-user-project=tankpool-ocr
+[debug] [2026-01-31T17:41:14.150Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/tankpool-ocr/services/cloudfunctions.googleapis.com [none]
+[debug] [2026-01-31T17:41:14.150Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/tankpool-ocr/services/cloudfunctions.googleapis.com  x-goog-user-project=tankpool-ocr
+[debug] [2026-01-31T17:41:14.151Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/tankpool-ocr/services/firebaseapphosting.googleapis.com [none]
+[debug] [2026-01-31T17:41:14.151Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/tankpool-ocr/services/firebaseapphosting.googleapis.com  x-goog-user-project=tankpool-ocr
+[debug] [2026-01-31T17:41:14.152Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/tankpool-ocr/services/firebaseio.com [none]
+[debug] [2026-01-31T17:41:14.152Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/tankpool-ocr/services/firebaseio.com  x-goog-user-project=tankpool-ocr
+[debug] [2026-01-31T17:41:14.499Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/tankpool-ocr/services/firebaseio.com 403
+[debug] [2026-01-31T17:41:14.499Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/tankpool-ocr/services/firebaseio.com [omitted]
+[debug] [2026-01-31T17:41:14.625Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/tankpool-ocr/services/firebaseapphosting.googleapis.com 200
+[debug] [2026-01-31T17:41:14.625Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/tankpool-ocr/services/firebaseapphosting.googleapis.com [omitted]
+[debug] [2026-01-31T17:41:14.628Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/tankpool-ocr/services/cloudfunctions.googleapis.com 200
+[debug] [2026-01-31T17:41:14.628Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/tankpool-ocr/services/cloudfunctions.googleapis.com [omitted]
+[debug] [2026-01-31T17:41:14.635Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/tankpool-ocr/services/firebasedataconnect.googleapis.com 200
+[debug] [2026-01-31T17:41:14.635Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/tankpool-ocr/services/firebasedataconnect.googleapis.com [omitted]
+[debug] [2026-01-31T17:41:15.225Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/tankpool-ocr/services/firebaseio.com 403
+[debug] [2026-01-31T17:41:15.225Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/tankpool-ocr/services/firebaseio.com [omitted]
+[debug] [2026-01-31T17:41:15.226Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/tankpool-ocr/services/firebaseio.com 403
+[debug] [2026-01-31T17:41:15.226Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/tankpool-ocr/services/firebaseio.com [omitted]
+[debug] [2026-01-31T17:41:15.443Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/tankpool-ocr/services/cloudfunctions.googleapis.com 200
+[debug] [2026-01-31T17:41:15.443Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/tankpool-ocr/services/cloudfunctions.googleapis.com [omitted]
+[debug] [2026-01-31T17:41:15.446Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/tankpool-ocr/services/firebaseapphosting.googleapis.com 200
+[debug] [2026-01-31T17:41:15.446Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/tankpool-ocr/services/firebaseapphosting.googleapis.com [omitted]
+[debug] [2026-01-31T17:41:15.462Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/tankpool-ocr/services/firebaseapphosting.googleapis.com 200
+[debug] [2026-01-31T17:41:15.462Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/tankpool-ocr/services/firebaseapphosting.googleapis.com [omitted]
+[debug] [2026-01-31T17:41:15.471Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/tankpool-ocr/services/firebasedataconnect.googleapis.com 200
+[debug] [2026-01-31T17:41:15.471Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/tankpool-ocr/services/firebasedataconnect.googleapis.com [omitted]
+[debug] [2026-01-31T17:41:15.472Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/tankpool-ocr/services/cloudfunctions.googleapis.com 200
+[debug] [2026-01-31T17:41:15.472Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/tankpool-ocr/services/cloudfunctions.googleapis.com [omitted]
+[debug] [2026-01-31T17:41:15.476Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/tankpool-ocr/services/firebasedataconnect.googleapis.com 200
+[debug] [2026-01-31T17:41:15.476Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/tankpool-ocr/services/firebasedataconnect.googleapis.com [omitted]
+[debug] [2026-01-31T17:41:15.489Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-01-31T17:41:15.489Z] > authorizing via signed-in user (zanies79@gmail.com)
+[debug] [2026-01-31T17:41:15.489Z] Checked if tokens are valid: true, expires at: 1769883549848
+[debug] [2026-01-31T17:41:15.489Z] Checked if tokens are valid: true, expires at: 1769883549848
+[debug] [2026-01-31T17:41:15.489Z] >>> [apiv2][query] GET https://cloudbilling.googleapis.com/v1/projects/tankpool-ocr/billingInfo [none]
+[debug] [2026-01-31T17:41:15.520Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-01-31T17:41:15.520Z] > authorizing via signed-in user (zanies79@gmail.com)
+[debug] [2026-01-31T17:41:15.520Z] Checked if tokens are valid: true, expires at: 1769883549848
+[debug] [2026-01-31T17:41:15.520Z] Checked if tokens are valid: true, expires at: 1769883549848
+[debug] [2026-01-31T17:41:15.520Z] >>> [apiv2][query] GET https://cloudbilling.googleapis.com/v1/projects/tankpool-ocr/billingInfo [none]
+[debug] [2026-01-31T17:41:16.132Z] <<< [apiv2][status] GET https://cloudbilling.googleapis.com/v1/projects/tankpool-ocr/billingInfo 200
+[debug] [2026-01-31T17:41:16.132Z] <<< [apiv2][body] GET https://cloudbilling.googleapis.com/v1/projects/tankpool-ocr/billingInfo {"name":"projects/tankpool-ocr/billingInfo","projectId":"tankpool-ocr","billingAccountName":"","billingEnabled":false}
+[debug] [2026-01-31T17:41:16.134Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-01-31T17:41:16.134Z] > authorizing via signed-in user (zanies79@gmail.com)
+[debug] [2026-01-31T17:41:16.146Z] <<< [apiv2][status] GET https://cloudbilling.googleapis.com/v1/projects/tankpool-ocr/billingInfo 200
+[debug] [2026-01-31T17:41:16.146Z] <<< [apiv2][body] GET https://cloudbilling.googleapis.com/v1/projects/tankpool-ocr/billingInfo {"name":"projects/tankpool-ocr/billingInfo","projectId":"tankpool-ocr","billingAccountName":"","billingEnabled":false}
+[debug] [2026-01-31T17:41:16.148Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-01-31T17:41:16.148Z] > authorizing via signed-in user (zanies79@gmail.com)
