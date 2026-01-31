@@ -396,6 +396,97 @@
             color: #3b82f6;
             /* Blue for dark mode */
         }
+
+        /* 3D Phone Mockup */
+        .perspective-1000 {
+            perspective: 1000px;
+        }
+
+        .phone-mockup-3d {
+            width: 100%;
+            height: 100%;
+            transition: transform 0.3s ease;
+        }
+
+        .group:hover .phone-mockup-3d {
+            transform: scale(1.02);
+        }
+
+        .phone-frame {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(145deg, #2d2d2d, #1a1a1a);
+            border-radius: 28px;
+            padding: 8px;
+            box-shadow:
+                0 25px 50px -12px rgba(0, 0, 0, 0.5),
+                inset 0 2px 4px rgba(255, 255, 255, 0.1),
+                inset 0 -2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .dark .phone-frame {
+            background: linear-gradient(145deg, #e5e7eb, #d1d5db);
+            box-shadow:
+                0 25px 50px -12px rgba(0, 0, 0, 0.8),
+                inset 0 2px 4px rgba(255, 255, 255, 0.4),
+                inset 0 -2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .phone-screen {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            background: #000;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.8);
+        }
+
+        .phone-screen img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .phone-notch {
+            position: absolute;
+            top: 16px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 24px;
+            background: #000;
+            border-radius: 0 0 12px 12px;
+            z-index: 10;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .phone-notch::before {
+            content: '';
+            position: absolute;
+            top: 6px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 4px;
+            background: #333;
+            border-radius: 2px;
+        }
+
+        .phone-notch::after {
+            content: '';
+            position: absolute;
+            top: 6px;
+            right: 12px;
+            width: 8px;
+            height: 8px;
+            background: #1a4d2e;
+            border-radius: 50%;
+            box-shadow: 0 0 4px rgba(26, 77, 46, 0.8);
+        }
     </style>
 </head>
 
@@ -801,23 +892,30 @@
                     <!-- Mobile App 1 -->
                     <div
                         class="card-shine group p-6 bg-background-light dark:bg-background-dark rounded-lg border border-gray-200 dark:border-gray-800 hover:border-accent dark:hover:border-accent transition-all hover:shadow-xl">
-                        <div
-                            class="aspect-[9/16] bg-gray-200 dark:bg-gray-800 rounded-md mb-6 overflow-hidden relative group-hover:scale-[1.02] transition-transform duration-300">
-                            <!-- Placeholder for Mockup -->
-                            <div
-                                class="absolute inset-0 flex items-center justify-center text-gray-400 dark:text-gray-600">
-                                <span class="material-icons-round text-4xl">mobile_screen_share</span>
+                        <div class="aspect-[9/20] mb-6 relative perspective-1000">
+                            <div class="phone-mockup-3d group-hover:rotate-y-12 transition-transform duration-500">
+                                <!-- Phone Frame -->
+                                <div class="phone-frame">
+                                    <!-- Screen -->
+                                    <div class="phone-screen">
+                                        <img src="assets/Screenshot_1769897410.webp" alt="FL ScanApp Screenshot" class="w-full h-full object-cover object-center">
+                                    </div>
+                                    <!-- Notch/Camera -->
+                                    <div class="phone-notch"></div>
+                                </div>
                             </div>
                         </div>
-                        <h4 class="font-display text-lg font-bold mb-2">App Name 1</h4>
-                        <p class="text-gray-600 dark:text-gray-400 text-sm mb-4 line-clamp-3">
-                            Krótki opis aplikacji mobilnej. Główne funkcjonalności i cel biznesowy.
+                        <h4 class="font-display text-lg font-bold mb-2">FL ScanApp</h4>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm mb-4 line-clamp-4">
+                            Elektroniczny obieg dokumentów. Skanuj smartfonem, konwertuj do PDF i wysyłaj emailem. Panel webowy do zarządzania z dowolnego miejsca.
                         </p>
                         <div class="flex flex-wrap gap-2">
                             <span
                                 class="text-xs px-2 py-1 bg-gray-100 dark:bg-gray-800 rounded font-mono">Flutter</span>
                             <span
-                                class="text-xs px-2 py-1 bg-gray-100 dark:bg-gray-800 rounded font-mono">Firebase</span>
+                                class="text-xs px-2 py-1 bg-gray-100 dark:bg-gray-800 rounded font-mono">Google ML Kit</span>
+                            <span
+                                class="text-xs px-2 py-1 bg-gray-100 dark:bg-gray-800 rounded font-mono">Mobile</span>
                         </div>
                     </div>
 
