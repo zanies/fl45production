@@ -302,6 +302,46 @@
             transform: translateY(0);
         }
 
+        /* Shine effect for cards */
+        .card-shine {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card-shine::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg,
+                    transparent 0%,
+                    rgba(255, 255, 255, 0.1) 45%,
+                    rgba(255, 255, 255, 0.3) 50%,
+                    rgba(255, 255, 255, 0.1) 55%,
+                    transparent 100%);
+            pointer-events: none;
+            z-index: 1;
+            opacity: 0;
+        }
+
+        .card-shine:hover::before {
+            left: 100%;
+            opacity: 1;
+            transition: left 0.6s ease, opacity 0.1s ease;
+        }
+
+        /* Dark mode shine */
+        .dark .card-shine::before {
+            background: linear-gradient(90deg,
+                    transparent 0%,
+                    rgba(255, 255, 255, 0.05) 45%,
+                    rgba(255, 255, 255, 0.15) 50%,
+                    rgba(255, 255, 255, 0.05) 55%,
+                    transparent 100%);
+        }
+
         .platform-icon:nth-child(1) .genie-glow {
             animation-delay: 0s;
         }
@@ -386,7 +426,7 @@
                 <div class="flex-shrink-0">
                     <a href="#" class="font-bold text-xl tracking-tight" style="font-family: 'Exo 2', sans-serif;">
                         <span class="text-gray-900 dark:text-white">FL45</span>
-                        <span class="accent"> Production</span>
+                        <span class="accent"> Production</span><span class="text-gray-900 dark:text-white">.</span>
                     </a>
                 </div>
                 <div class="hidden md:flex items-center space-x-8 font-mono text-sm">
@@ -642,7 +682,7 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Web Development -->
                 <div
-                    class="group p-8 bg-background-light dark:bg-background-dark rounded-lg border border-gray-200 dark:border-gray-800 hover:border-accent dark:hover:border-accent transition-all hover:shadow-xl">
+                    class="card-shine group p-8 bg-background-light dark:bg-background-dark rounded-lg border border-gray-200 dark:border-gray-800 hover:border-accent dark:hover:border-accent transition-all hover:shadow-xl">
                     <div
                         class="w-14 h-14 bg-blue-50 dark:bg-blue-950/30 rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                         <span class="material-icons-round text-3xl text-accent">code</span>
@@ -660,7 +700,7 @@
 
                 <!-- Mobile Development -->
                 <div
-                    class="group p-8 bg-background-light dark:bg-background-dark rounded-lg border border-gray-200 dark:border-gray-800 hover:border-accent dark:hover:border-accent transition-all hover:shadow-xl">
+                    class="card-shine group p-8 bg-background-light dark:bg-background-dark rounded-lg border border-gray-200 dark:border-gray-800 hover:border-accent dark:hover:border-accent transition-all hover:shadow-xl">
                     <div
                         class="w-14 h-14 bg-blue-50 dark:bg-blue-950/30 rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                         <span class="material-icons-round text-3xl text-accent">smartphone</span>
@@ -678,7 +718,7 @@
 
                 <!-- Backend & API -->
                 <div
-                    class="group p-8 bg-background-light dark:bg-background-dark rounded-lg border border-gray-200 dark:border-gray-800 hover:border-accent dark:hover:border-accent transition-all hover:shadow-xl">
+                    class="card-shine group p-8 bg-background-light dark:bg-background-dark rounded-lg border border-gray-200 dark:border-gray-800 hover:border-accent dark:hover:border-accent transition-all hover:shadow-xl">
                     <div
                         class="w-14 h-14 bg-blue-50 dark:bg-blue-950/30 rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                         <span class="material-icons-round text-3xl text-accent">storage</span>
@@ -696,7 +736,7 @@
 
                 <!-- Chatbots & Messaging -->
                 <div
-                    class="group p-8 bg-background-light dark:bg-background-dark rounded-lg border border-gray-200 dark:border-gray-800 hover:border-accent dark:hover:border-accent transition-all hover:shadow-xl">
+                    class="card-shine group p-8 bg-background-light dark:bg-background-dark rounded-lg border border-gray-200 dark:border-gray-800 hover:border-accent dark:hover:border-accent transition-all hover:shadow-xl">
                     <div
                         class="w-14 h-14 bg-blue-50 dark:bg-blue-950/30 rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                         <span class="material-icons-round text-3xl text-accent">chat</span>
@@ -715,7 +755,7 @@
 
                 <!-- AI Agents & Automation -->
                 <div
-                    class="group p-8 bg-background-light dark:bg-background-dark rounded-lg border border-gray-200 dark:border-gray-800 hover:border-accent dark:hover:border-accent transition-all hover:shadow-xl">
+                    class="card-shine group p-8 bg-background-light dark:bg-background-dark rounded-lg border border-gray-200 dark:border-gray-800 hover:border-accent dark:hover:border-accent transition-all hover:shadow-xl">
                     <div
                         class="w-14 h-14 bg-blue-50 dark:bg-blue-950/30 rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                         <span class="material-icons-round text-3xl text-accent">psychology</span>
@@ -780,7 +820,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex flex-col md:flex-row justify-between items-center">
                 <div class="mb-4 md:mb-0 text-center md:text-left">
-                    <span class="font-bold text-xl" style="font-family: 'Exo 2', sans-serif;">FL45 Production</span>
+                    <span class="font-bold text-xl" style="font-family: 'Exo 2', sans-serif;">FL45 Production.</span>
                     <p class="text-gray-500 text-xs mt-1 font-mono">© 2024 Wszystkie prawa zastrzeżone</p>
                 </div>
                 <div class="flex space-x-6">
