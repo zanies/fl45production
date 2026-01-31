@@ -775,6 +775,13 @@
                     typingSpeed = 150;
                 }
 
+                // Dodaj gradient dla "Koduję"
+                if (currentWord === 'Koduję') {
+                    typewriterElement.className = 'text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600';
+                } else {
+                    typewriterElement.className = '';
+                }
+
                 // Gdy skończymy wpisywać słowo
                 if (!isDeleting && charIndex === currentWord.length) {
                     typingSpeed = 2000; // Czekaj 2 sekundy
