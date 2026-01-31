@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Feature-Policy" content="autoplay 'self'">
     <title>FL 45 Production | Developer & Designer</title>
     <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
     <script>
@@ -158,9 +159,9 @@
 
                         <!-- Main Content Area with Photo -->
                         <div class="relative">
-                            <div class="relative aspect-[4/5] lg:aspect-[3/4]">
-                                <!-- Your Photo -->
-                                <img src="zns.jpg" alt="FL 45 Production Developer" class="w-full h-full object-cover filter grayscale">
+                            <div class="relative aspect-[4/5] lg:aspect-[3/4] overflow-hidden bg-black">
+                                <!-- Your Photo/Animation -->
+                                <canvas id="heroCanvas" class="absolute inset-0 w-full h-full object-cover filter grayscale"></canvas>
 
                                 <!-- Code Overlay - Top Left -->
                                 <div class="absolute top-4 left-4 text-xs font-mono text-white/90 space-y-1 bg-black/40 backdrop-blur-sm p-3 rounded">
@@ -392,11 +393,108 @@
     </footer>
 
     <script>
-        // Dark mode toggle (optional)
+        // Dark mode toggle
         const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
         if (prefersDark) {
             document.documentElement.classList.add('dark');
         }
+
+        // WebP sequence animation with crossfade loop
+        (function() {
+            const canvas = document.getElementById('heroCanvas');
+            const ctx = canvas.getContext('2d');
+            const frameCount = 192;
+            const images = [];
+            let currentFrame = 0;
+            let imagesLoaded = 0;
+
+            // Set canvas size to match container
+            function resizeCanvas() {
+                const rect = canvas.getBoundingClientRect();
+                canvas.width = rect.width;
+                canvas.height = rect.height;
+            }
+            resizeCanvas();
+            window.addEventListener('resize', resizeCanvas);
+
+            // Preload all frames
+            for (let i = 1; i <= frameCount; i++) {
+                const img = new Image();
+                img.onload = () => {
+                    imagesLoaded++;
+                    if (imagesLoaded === frameCount) {
+                        startAnimation();
+                    }
+                };
+                img.src = `animation/frame_${String(i).padStart(4, '0')}.webp`;
+                images.push(img);
+            }
+
+            // Draw frame to canvas with optional crossfade
+            function drawFrame(frameIndex, alpha = 1) {
+                const img = images[frameIndex];
+                if (!img || !img.complete) return;
+
+                // Calculate aspect ratio fit
+                const canvasRatio = canvas.width / canvas.height;
+                const imgRatio = img.width / img.height;
+
+                let drawWidth, drawHeight, offsetX, offsetY;
+
+                if (canvasRatio > imgRatio) {
+                    drawWidth = canvas.width;
+                    drawHeight = canvas.width / imgRatio;
+                    offsetX = 0;
+                    offsetY = (canvas.height - drawHeight) / 2;
+                } else {
+                    drawHeight = canvas.height;
+                    drawWidth = canvas.height * imgRatio;
+                    offsetX = (canvas.width - drawWidth) / 2;
+                    offsetY = 0;
+                }
+
+                if (alpha < 1) {
+                    ctx.globalAlpha = alpha;
+                }
+                ctx.drawImage(img, offsetX, offsetY, drawWidth, drawHeight);
+                if (alpha < 1) {
+                    ctx.globalAlpha = 1;
+                }
+            }
+
+            // Animation loop at 24fps with smooth looping
+            function startAnimation() {
+                let lastFrameTime = performance.now();
+                const frameDuration = 1000 / 24;
+                const crossfadeFrames = 8; // Crossfade last 8 frames
+
+                function animate(currentTime) {
+                    const elapsed = currentTime - lastFrameTime;
+
+                    if (elapsed >= frameDuration) {
+                        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+                        // Crossfade between last frames and first frames
+                        if (currentFrame >= frameCount - crossfadeFrames) {
+                            const fadeProgress = (currentFrame - (frameCount - crossfadeFrames)) / crossfadeFrames;
+                            const nextFrame = currentFrame - (frameCount - crossfadeFrames);
+
+                            drawFrame(currentFrame, 1 - fadeProgress);
+                            drawFrame(nextFrame, fadeProgress);
+                        } else {
+                            drawFrame(currentFrame);
+                        }
+
+                        currentFrame = (currentFrame + 1) % frameCount;
+                        lastFrameTime = currentTime - (elapsed % frameDuration);
+                    }
+
+                    requestAnimationFrame(animate);
+                }
+
+                requestAnimationFrame(animate);
+            }
+        })();
     </script>
 
 </body>
