@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pl">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -30,7 +31,9 @@
     </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=JetBrains+Mono:wght@400;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=JetBrains+Mono:wght@400;600&family=Space+Grotesk:wght@500;700&display=swap"
+        rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
     <style>
         /* Preloader */
@@ -48,13 +51,16 @@
             z-index: 9999;
             transition: opacity 0.5s ease-out;
         }
+
         .preloader.loaded {
             opacity: 0;
             pointer-events: none;
         }
+
         .preloader-content {
             text-align: center;
         }
+
         .preloader-logo {
             font-family: 'Space Grotesk', sans-serif;
             font-size: 2rem;
@@ -62,9 +68,11 @@
             color: white;
             margin-bottom: 2rem;
         }
+
         .preloader-logo .accent {
             color: #3b82f6;
         }
+
         .progress-container {
             width: 300px;
             height: 4px;
@@ -73,6 +81,7 @@
             overflow: hidden;
             position: relative;
         }
+
         .progress-bar {
             height: 100%;
             background: linear-gradient(90deg, #3b82f6, #8b5cf6);
@@ -80,78 +89,123 @@
             transition: width 0.6s ease-out;
             box-shadow: 0 0 10px rgba(59, 130, 246, 0.5);
         }
+
         .progress-text {
             margin-top: 1rem;
             font-family: 'JetBrains Mono', monospace;
             font-size: 0.875rem;
             color: #9ca3af;
         }
+
         .loading-dots::after {
             content: '';
             animation: dots 1.5s steps(4, end) infinite;
         }
+
         @keyframes dots {
-            0%, 20% { content: ''; }
-            40% { content: '.'; }
-            60% { content: '..'; }
-            80%, 100% { content: '...'; }
+
+            0%,
+            20% {
+                content: '';
+            }
+
+            40% {
+                content: '.';
+            }
+
+            60% {
+                content: '..';
+            }
+
+            80%,
+            100% {
+                content: '...';
+            }
         }
 
         .terminal-window {
             box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
         }
+
         .code-bg {
             background: linear-gradient(to bottom, #1e1e1e 0%, #252526 100%);
         }
+
         .glow {
             text-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
         }
+
         .typing-cursor::after {
             content: "|";
             animation: blink 1s step-start infinite;
         }
+
         @keyframes blink {
-            50% { opacity: 0; }
+            50% {
+                opacity: 0;
+            }
         }
+
         @keyframes fadeInUp {
             from {
                 opacity: 0;
                 transform: translateY(30px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
             }
         }
+
         .animate-fade-in-up {
             animation: fadeInUp 0.8s ease-out forwards;
         }
-        .delay-100 { animation-delay: 100ms; }
-        .delay-200 { animation-delay: 200ms; }
-        .delay-300 { animation-delay: 300ms; }
+
+        .delay-100 {
+            animation-delay: 100ms;
+        }
+
+        .delay-200 {
+            animation-delay: 200ms;
+        }
+
+        .delay-300 {
+            animation-delay: 300ms;
+        }
 
         /* Platform icons sequential pulse animation */
         @keyframes iconPulse {
-            0%, 80%, 100% {
+
+            0%,
+            80%,
+            100% {
                 transform: scale(1);
             }
+
             10% {
                 transform: scale(1.25);
             }
+
             20% {
                 transform: scale(1);
             }
         }
 
         @keyframes glowFlash {
-            0%, 80%, 100% {
+
+            0%,
+            80%,
+            100% {
                 opacity: 0.3;
                 transform: translateX(-50%) scale(1);
             }
+
             10% {
                 opacity: 1;
                 transform: translateX(-50%) scale(1.3);
             }
+
             20% {
                 transform: translateX(-50%) scale(1);
                 opacity: 0.3;
@@ -163,11 +217,25 @@
             animation: iconPulse 5s ease-in-out infinite;
         }
 
-        .platform-icon:nth-child(1) svg { animation-delay: 0s; }
-        .platform-icon:nth-child(2) svg { animation-delay: 1s; }
-        .platform-icon:nth-child(3) svg { animation-delay: 2s; }
-        .platform-icon:nth-child(4) svg { animation-delay: 3s; }
-        .platform-icon:nth-child(5) svg { animation-delay: 4s; }
+        .platform-icon:nth-child(1) svg {
+            animation-delay: 0s;
+        }
+
+        .platform-icon:nth-child(2) svg {
+            animation-delay: 1s;
+        }
+
+        .platform-icon:nth-child(3) svg {
+            animation-delay: 2s;
+        }
+
+        .platform-icon:nth-child(4) svg {
+            animation-delay: 3s;
+        }
+
+        .platform-icon:nth-child(5) svg {
+            animation-delay: 4s;
+        }
 
         .genie-glow {
             position: absolute;
@@ -182,17 +250,34 @@
             animation: glowFlash 5s ease-in-out infinite;
         }
 
-        .platform-icon:nth-child(1) .genie-glow { animation-delay: 0s; }
-        .platform-icon:nth-child(2) .genie-glow { animation-delay: 1s; }
-        .platform-icon:nth-child(3) .genie-glow { animation-delay: 2s; }
-        .platform-icon:nth-child(4) .genie-glow { animation-delay: 3s; }
-        .platform-icon:nth-child(5) .genie-glow { animation-delay: 4s; }
+        .platform-icon:nth-child(1) .genie-glow {
+            animation-delay: 0s;
+        }
+
+        .platform-icon:nth-child(2) .genie-glow {
+            animation-delay: 1s;
+        }
+
+        .platform-icon:nth-child(3) .genie-glow {
+            animation-delay: 2s;
+        }
+
+        .platform-icon:nth-child(4) .genie-glow {
+            animation-delay: 3s;
+        }
+
+        .platform-icon:nth-child(5) .genie-glow {
+            animation-delay: 4s;
+        }
 
         /* Lekkie przechylenie 3D z animacją unoszenia */
         @keyframes mockupFloat {
-            0%, 100% {
+
+            0%,
+            100% {
                 transform: perspective(1200px) rotateX(-2deg) rotateY(3deg) translateY(0px);
             }
+
             50% {
                 transform: perspective(1200px) rotateX(-2deg) rotateY(3deg) translateY(-12px);
             }
@@ -203,8 +288,25 @@
             transform: perspective(1200px) rotateX(-2deg) rotateY(3deg);
             animation: mockupFloat 4s ease-in-out infinite;
         }
+
+        /* Smooth theme transitions */
+        * {
+            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+        }
+
+        /* Accent color for branding */
+        .accent {
+            color: #3b82f6;
+            /* Blue for light mode */
+        }
+
+        .dark .accent {
+            color: #3b82f6;
+            /* Blue for dark mode */
+        }
     </style>
 </head>
+
 <body class="bg-background-light dark:bg-background-dark text-gray-900 dark:text-gray-100 font-body antialiased">
 
     <!-- Preloader -->
@@ -225,7 +327,8 @@
     </div>
 
     <!-- Navigation -->
-    <nav class="fixed top-0 w-full z-50 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-xl border-b border-gray-200 dark:border-gray-800">
+    <nav
+        class="fixed top-0 w-full z-50 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-xl border-b border-gray-200 dark:border-gray-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
                 <div class="flex-shrink-0">
@@ -238,7 +341,13 @@
                     <a href="#o-mnie" class="hover:text-accent transition-colors">./o-mnie</a>
                     <a href="#uslugi" class="hover:text-accent transition-colors">./usługi</a>
                     <a href="#projekty" class="hover:text-accent transition-colors">./projekty</a>
-                    <a href="#kontakt" class="bg-accent text-white px-6 py-2 rounded hover:bg-blue-600 transition-colors">
+                    <button id="themeToggle"
+                        class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+                        aria-label="Toggle theme">
+                        <span class="material-icons-round text-gray-700 dark:text-gray-300">light_mode</span>
+                    </button>
+                    <a href="#kontakt"
+                        class="bg-accent text-white px-6 py-2 rounded hover:bg-blue-600 transition-colors">
                         Kontakt
                     </a>
                 </div>
@@ -251,37 +360,46 @@
 
     <!-- Hero Section with VS Code Terminal -->
     <section class="relative pt-24 pb-20 lg:pt-32 lg:pb-32 overflow-hidden">
-        <div class="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-gray-900 dark:via-background-dark dark:to-blue-950 opacity-50"></div>
+        <div
+            class="absolute inset-0 bg-gradient-to-br from-gray-200 via-gray-100 to-gray-50 dark:from-gray-900 dark:via-background-dark dark:to-blue-950 opacity-50">
+        </div>
 
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
 
                 <!-- Left: Text Content -->
                 <div class="space-y-6 opacity-0 animate-fade-in-up">
-                    <div class="inline-flex items-center space-x-2 bg-blue-50 dark:bg-blue-950/30 px-4 py-2 rounded-full border border-blue-200 dark:border-blue-800">
+                    <div
+                        class="inline-flex items-center space-x-2 bg-blue-50 dark:bg-blue-950/30 px-4 py-2 rounded-full border border-blue-200 dark:border-blue-800">
                         <span class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
                         <span class="text-xs font-mono text-gray-700 dark:text-gray-300">Dostępny na projekty</span>
                     </div>
 
                     <h1 class="font-display text-5xl lg:text-7xl font-bold tracking-tight leading-tight">
-                        <span class="block text-gray-900 dark:text-white">Tworzę</span>
-                        <span class="block text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">Nowoczesne</span>
-                        <span class="block text-gray-900 dark:text-white">Rozwiązania</span>
+                        <span class="block text-gray-900 dark:text-white">Projektuję</span>
+                        <span
+                            class="block text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">Koduję</span>
+                        <span class="block text-gray-900 dark:text-white">Wdrażam</span>
                     </h1>
 
                     <div class="text-lg text-gray-600 dark:text-gray-400 font-mono space-y-2 max-w-lg">
                         <p><span class="text-accent font-semibold">const</span> developer = {</p>
-                        <p class="pl-4">name: <span class="text-green-600 dark:text-green-400">"FL45 Production"</span>,</p>
-                        <p class="pl-4">skills: <span class="text-yellow-600 dark:text-yellow-400">["Web", "Mobile", "Backend"]</span>,</p>
-                        <p class="pl-4">passion: <span class="text-green-600 dark:text-green-400">"Building digital experiences"</span></p>
+                        <p class="pl-4">name: <span class="text-green-600 dark:text-green-400">"FL45 Production"</span>,
+                        </p>
+                        <p class="pl-4">skills: <span class="text-yellow-600 dark:text-yellow-400">["Web", "Mobile",
+                                "Backend"]</span>,</p>
+                        <p class="pl-4">passion: <span class="text-green-600 dark:text-green-400">"Building digital
+                                experiences"</span></p>
                         <p>};</p>
                     </div>
 
                     <div class="flex flex-col sm:flex-row gap-4 pt-6">
-                        <a href="#projekty" class="inline-flex justify-center items-center px-8 py-4 bg-accent text-white font-mono text-sm rounded hover:bg-blue-600 transition-all shadow-lg hover:shadow-xl">
+                        <a href="#projekty"
+                            class="inline-flex justify-center items-center px-8 py-4 bg-accent text-white font-mono text-sm rounded hover:bg-blue-600 transition-all shadow-lg hover:shadow-xl">
                             Zobacz projekty →
                         </a>
-                        <a href="#kontakt" class="inline-flex justify-center items-center px-8 py-4 bg-transparent border-2 border-gray-900 dark:border-gray-100 text-gray-900 dark:text-gray-100 font-mono text-sm rounded hover:bg-gray-100 dark:hover:bg-gray-900 transition-all">
+                        <a href="#kontakt"
+                            class="inline-flex justify-center items-center px-8 py-4 bg-transparent border-2 border-gray-900 dark:border-gray-100 text-gray-900 dark:text-gray-100 font-mono text-sm rounded hover:bg-gray-100 dark:hover:bg-gray-900 transition-all">
                             Skontaktuj się
                         </a>
                     </div>
@@ -299,11 +417,12 @@
                                     <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
                                     <div class="w-3 h-3 rounded-full bg-green-500"></div>
                                 </div>
-                                <svg class="w-4 h-4 ml-2" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M75 27.5L50 12.5L25 27.5V72.5L50 87.5L75 72.5V27.5Z" fill="#0098FF"/>
-                                    <path d="M50 12.5L25 27.5L50 42.5L75 27.5L50 12.5Z" fill="#005A9E"/>
-                                    <path d="M25 72.5L50 57.5V42.5L25 27.5V72.5Z" fill="#007ACC"/>
-                                    <path d="M75 72.5L50 57.5V42.5L75 27.5V72.5Z" fill="#0098FF"/>
+                                <svg class="w-4 h-4 ml-2" viewBox="0 0 100 100" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M75 27.5L50 12.5L25 27.5V72.5L50 87.5L75 72.5V27.5Z" fill="#0098FF" />
+                                    <path d="M50 12.5L25 27.5L50 42.5L75 27.5L50 12.5Z" fill="#005A9E" />
+                                    <path d="M25 72.5L50 57.5V42.5L25 27.5V72.5Z" fill="#007ACC" />
+                                    <path d="M75 72.5L50 57.5V42.5L75 27.5V72.5Z" fill="#0098FF" />
                                 </svg>
                             </div>
                             <div class="ml-3 text-xs text-gray-400 font-mono">developer.tsx - FL45Production</div>
@@ -312,7 +431,8 @@
                         <!-- VS Code Tab Bar -->
                         <div class="h-9 bg-[#2d2d2d] border-b border-gray-700 flex items-center px-2">
                             <div class="flex items-center space-x-1">
-                                <div class="px-3 py-1 bg-[#1e1e1e] text-xs text-gray-300 font-mono flex items-center space-x-2 rounded-t">
+                                <div
+                                    class="px-3 py-1 bg-[#1e1e1e] text-xs text-gray-300 font-mono flex items-center space-x-2 rounded-t">
                                     <span class="text-blue-400">⚛</span>
                                     <span>developer.tsx</span>
                                     <span class="text-gray-500">×</span>
@@ -324,19 +444,30 @@
                         <div class="relative">
                             <div class="relative aspect-[4/5] lg:aspect-[3/4] overflow-hidden bg-black">
                                 <!-- Your Photo/Animation -->
-                                <canvas id="heroCanvas" class="absolute inset-0 w-full h-full object-cover filter grayscale"></canvas>
+                                <canvas id="heroCanvas"
+                                    class="absolute inset-0 w-full h-full object-cover filter grayscale"></canvas>
 
                                 <!-- Code Overlay - Top Left -->
-                                <div class="absolute top-4 left-4 text-xs font-mono text-white/90 space-y-1 bg-black/40 backdrop-blur-sm p-3 rounded">
-                                    <p><span class="text-purple-400">import</span> <span class="text-yellow-300">Developer</span> <span class="text-purple-400">from</span> <span class="text-green-400">'@fl45/core'</span>;</p>
-                                    <p><span class="text-purple-400">import</span> <span class="text-yellow-300">Skills</span> <span class="text-purple-400">from</span> <span class="text-green-400">'./skills'</span>;</p>
+                                <div
+                                    class="absolute top-4 left-4 text-xs font-mono text-white/90 space-y-1 bg-black/40 backdrop-blur-sm p-3 rounded">
+                                    <p><span class="text-purple-400">import</span> <span
+                                            class="text-yellow-300">Developer</span> <span
+                                            class="text-purple-400">from</span> <span
+                                            class="text-green-400">'@fl45/core'</span>;</p>
+                                    <p><span class="text-purple-400">import</span> <span
+                                            class="text-yellow-300">Skills</span> <span
+                                            class="text-purple-400">from</span> <span
+                                            class="text-green-400">'./skills'</span>;</p>
                                 </div>
 
                                 <!-- Terminal Output Overlay - Bottom -->
-                                <div class="absolute bottom-0 left-0 right-0 bg-black/90 backdrop-blur text-white text-xs font-mono p-4 space-y-1">
+                                <div
+                                    class="absolute bottom-0 left-0 right-0 bg-black/90 backdrop-blur text-white text-xs font-mono p-4 space-y-1">
                                     <p><span class="text-green-400">✓</span> Building production-ready solutions...</p>
-                                    <p><span class="text-blue-400">→</span> Status: <span class="text-green-400">Ready for new projects</span></p>
-                                    <p><span class="text-yellow-400">⚡</span> Performance: <span class="text-green-400">Optimized</span></p>
+                                    <p><span class="text-blue-400">→</span> Status: <span class="text-green-400">Ready
+                                            for new projects</span></p>
+                                    <p><span class="text-yellow-400">⚡</span> Performance: <span
+                                            class="text-green-400">Optimized</span></p>
                                     <div class="mt-2 flex items-center space-x-2">
                                         <span class="text-gray-500">$</span>
                                         <span class="typing-cursor">npm run build</span>
@@ -346,7 +477,8 @@
                         </div>
 
                         <!-- Status Bar -->
-                        <div class="h-6 bg-[#007acc] flex items-center justify-between px-4 text-xs text-white font-mono">
+                        <div
+                            class="h-6 bg-[#007acc] flex items-center justify-between px-4 text-xs text-white font-mono">
                             <div class="flex items-center space-x-4">
                                 <span class="flex items-center space-x-1">
                                     <span class="material-icons-round text-sm">account_circle</span>
@@ -374,15 +506,18 @@
     <section class="py-12 bg-background-light dark:bg-background-dark border-b border-gray-200 dark:border-gray-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-8">
-                <p class="text-xs font-mono text-gray-500 dark:text-gray-400 uppercase tracking-wider">Wspierane platformy</p>
+                <p class="text-xs font-mono text-gray-500 dark:text-gray-400 uppercase tracking-wider">Wspierane
+                    platformy</p>
             </div>
             <div class="flex flex-wrap justify-center items-center gap-12 md:gap-16">
                 <!-- Android -->
                 <div class="flex flex-col items-center gap-2 platform-icon">
                     <div class="relative">
                         <div class="genie-glow"></div>
-                        <svg class="w-14 h-14 text-gray-700 dark:text-gray-300 transition-all duration-500" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M17.6,9.48l1.84-3.18c0.16-0.31,0.04-0.69-0.26-0.85c-0.29-0.15-0.65-0.06-0.83,0.22l-1.88,3.24 c-2.86-1.21-6.08-1.21-8.94,0L5.65,5.67c-0.19-0.29-0.58-0.38-0.87-0.2C4.5,5.65,4.41,6.01,4.56,6.3L6.4,9.48 C3.3,11.25,1.28,14.44,1,18h22C22.72,14.44,20.7,11.25,17.6,9.48z M7,15.25c-0.69,0-1.25-0.56-1.25-1.25 c0-0.69,0.56-1.25,1.25-1.25S8.25,13.31,8.25,14C8.25,14.69,7.69,15.25,7,15.25z M17,15.25c-0.69,0-1.25-0.56-1.25-1.25 c0-0.69,0.56-1.25,1.25-1.25s1.25,0.56,1.25,1.25C18.25,14.69,17.69,15.25,17,15.25z"/>
+                        <svg class="w-14 h-14 text-gray-700 dark:text-gray-300 transition-all duration-500"
+                            viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M17.6,9.48l1.84-3.18c0.16-0.31,0.04-0.69-0.26-0.85c-0.29-0.15-0.65-0.06-0.83,0.22l-1.88,3.24 c-2.86-1.21-6.08-1.21-8.94,0L5.65,5.67c-0.19-0.29-0.58-0.38-0.87-0.2C4.5,5.65,4.41,6.01,4.56,6.3L6.4,9.48 C3.3,11.25,1.28,14.44,1,18h22C22.72,14.44,20.7,11.25,17.6,9.48z M7,15.25c-0.69,0-1.25-0.56-1.25-1.25 c0-0.69,0.56-1.25,1.25-1.25S8.25,13.31,8.25,14C8.25,14.69,7.69,15.25,7,15.25z M17,15.25c-0.69,0-1.25-0.56-1.25-1.25 c0-0.69,0.56-1.25,1.25-1.25s1.25,0.56,1.25,1.25C18.25,14.69,17.69,15.25,17,15.25z" />
                         </svg>
                     </div>
                     <span class="text-xs font-mono text-gray-500 dark:text-gray-400">Android</span>
@@ -392,8 +527,10 @@
                 <div class="flex flex-col items-center gap-2 platform-icon">
                     <div class="relative">
                         <div class="genie-glow"></div>
-                        <svg class="w-14 h-14 text-gray-700 dark:text-gray-300 transition-all duration-500" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/>
+                        <svg class="w-14 h-14 text-gray-700 dark:text-gray-300 transition-all duration-500"
+                            viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z" />
                         </svg>
                     </div>
                     <span class="text-xs font-mono text-gray-500 dark:text-gray-400">iOS</span>
@@ -403,8 +540,10 @@
                 <div class="flex flex-col items-center gap-2 platform-icon">
                     <div class="relative">
                         <div class="genie-glow"></div>
-                        <svg class="w-14 h-14 text-gray-700 dark:text-gray-300 transition-all duration-500" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M3,12V6.75L9,5.43V11.91L3,12M20,3V11.75L10,11.9V5.21L20,3M3,13L9,13.09V19.9L3,18.75V13M20,13.25V22L10,20.09V13.1L20,13.25Z"/>
+                        <svg class="w-14 h-14 text-gray-700 dark:text-gray-300 transition-all duration-500"
+                            viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M3,12V6.75L9,5.43V11.91L3,12M20,3V11.75L10,11.9V5.21L20,3M3,13L9,13.09V19.9L3,18.75V13M20,13.25V22L10,20.09V13.1L20,13.25Z" />
                         </svg>
                     </div>
                     <span class="text-xs font-mono text-gray-500 dark:text-gray-400">Windows</span>
@@ -414,8 +553,10 @@
                 <div class="flex flex-col items-center gap-2 platform-icon">
                     <div class="relative">
                         <div class="genie-glow"></div>
-                        <svg class="w-14 h-14 text-gray-700 dark:text-gray-300 transition-all duration-500" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M14.94 5.19A4.38 4.38 0 0 0 16 2a4.44 4.44 0 0 0-3 1.52 4.17 4.17 0 0 0-1 3.09 3.69 3.69 0 0 0 2.94-1.42m2.52 7.44a4.51 4.51 0 0 1 2.16-3.81 4.66 4.66 0 0 0-3.66-2c-1.56-.16-3 .91-3.83.91-.83 0-2-.89-3.3-.87a4.92 4.92 0 0 0-4.14 2.53C2.93 12.45 4.24 17 6 19.47c.8 1.21 1.8 2.58 3.12 2.53s1.75-.82 3.28-.82 2 .82 3.3.79 2.22-1.24 3.06-2.45a11 11 0 0 0 1.38-2.85 4.41 4.41 0 0 1-2.68-4.04z"/>
+                        <svg class="w-14 h-14 text-gray-700 dark:text-gray-300 transition-all duration-500"
+                            viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M14.94 5.19A4.38 4.38 0 0 0 16 2a4.44 4.44 0 0 0-3 1.52 4.17 4.17 0 0 0-1 3.09 3.69 3.69 0 0 0 2.94-1.42m2.52 7.44a4.51 4.51 0 0 1 2.16-3.81 4.66 4.66 0 0 0-3.66-2c-1.56-.16-3 .91-3.83.91-.83 0-2-.89-3.3-.87a4.92 4.92 0 0 0-4.14 2.53C2.93 12.45 4.24 17 6 19.47c.8 1.21 1.8 2.58 3.12 2.53s1.75-.82 3.28-.82 2 .82 3.3.79 2.22-1.24 3.06-2.45a11 11 0 0 0 1.38-2.85 4.41 4.41 0 0 1-2.68-4.04z" />
                         </svg>
                     </div>
                     <span class="text-xs font-mono text-gray-500 dark:text-gray-400">macOS</span>
@@ -425,8 +566,10 @@
                 <div class="flex flex-col items-center gap-2 platform-icon">
                     <div class="relative">
                         <div class="genie-glow"></div>
-                        <svg class="w-14 h-14 text-gray-700 dark:text-gray-300 transition-all duration-500" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M14.62,8.35c-0.42,0.28-0.64,0.79-0.99,1.14c-0.32,0.33-0.75,0.43-1.14,0.59c-0.39,0.16-0.82,0.28-1.14,0.59 c-0.32,0.31-0.57,0.8-0.99,1.14c-0.42,0.34-0.99,0.4-1.5,0.4c-0.51,0-1.1-0.15-1.5-0.4c-0.42-0.27-0.64-0.79-0.99-1.14 c-0.32-0.33-0.75-0.43-1.14-0.59c-0.39-0.16-0.82-0.28-1.14-0.59c-0.32-0.31-0.57-0.8-0.99-1.14C3.68,8.07,3.11,8.01,2.6,8.01 c-0.51,0-1.08,0.06-1.5,0.34c0,0,0.43,0.99,0.64,1.48c0.21,0.49,0.32,1.1,0.32,1.65c0,0.55,0,1.13,0,1.68 c0,0.55,0.11,1.16,0.32,1.65c0.21,0.49,0.64,1.48,0.64,1.48c0.42-0.28,0.99-0.34,1.5-0.34c0.51,0,1.08,0.06,1.5,0.34 c0.42,0.28,0.64,0.79,0.99,1.14c0.32,0.33,0.75,0.43,1.14,0.59c0.39,0.16,0.82,0.28,1.14,0.59c0.32,0.31,0.57,0.8,0.99,1.14 c0.4,0.25,0.99,0.4,1.5,0.4c0.51,0,1.08-0.15,1.5-0.4c0.42-0.34,0.67-0.83,0.99-1.14c0.32-0.31,0.75-0.43,1.14-0.59 c0.39-0.16,0.82-0.26,1.14-0.59c0.35-0.35,0.57-0.86,0.99-1.14c0.42-0.28,0.99-0.34,1.5-0.34c0.51,0,1.08,0.06,1.5,0.34 c0,0-0.43-0.99-0.64-1.48c-0.21-0.49-0.32-1.1-0.32-1.65c0-0.55,0-1.13,0-1.68c0-0.55,0.11-1.16,0.32-1.65 c0.21-0.49,0.64-1.48,0.64-1.48c-0.42,0.28-0.99,0.34-1.5,0.34C15.61,8.69,15.04,8.63,14.62,8.35z M12,14c-1.1,0-2-0.9-2-2 c0-1.1,0.9-2,2-2s2,0.9,2,2C14,13.1,13.1,14,12,14z"/>
+                        <svg class="w-14 h-14 text-gray-700 dark:text-gray-300 transition-all duration-500"
+                            viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M14.62,8.35c-0.42,0.28-0.64,0.79-0.99,1.14c-0.32,0.33-0.75,0.43-1.14,0.59c-0.39,0.16-0.82,0.28-1.14,0.59 c-0.32,0.31-0.57,0.8-0.99,1.14c-0.42,0.34-0.99,0.4-1.5,0.4c-0.51,0-1.1-0.15-1.5-0.4c-0.42-0.27-0.64-0.79-0.99-1.14 c-0.32-0.33-0.75-0.43-1.14-0.59c-0.39-0.16-0.82-0.28-1.14-0.59c-0.32-0.31-0.57-0.8-0.99-1.14C3.68,8.07,3.11,8.01,2.6,8.01 c-0.51,0-1.08,0.06-1.5,0.34c0,0,0.43,0.99,0.64,1.48c0.21,0.49,0.32,1.1,0.32,1.65c0,0.55,0,1.13,0,1.68 c0,0.55,0.11,1.16,0.32,1.65c0.21,0.49,0.64,1.48,0.64,1.48c0.42-0.28,0.99-0.34,1.5-0.34c0.51,0,1.08,0.06,1.5,0.34 c0.42,0.28,0.64,0.79,0.99,1.14c0.32,0.33,0.75,0.43,1.14,0.59c0.39,0.16,0.82,0.28,1.14,0.59c0.32,0.31,0.57,0.8,0.99,1.14 c0.4,0.25,0.99,0.4,1.5,0.4c0.51,0,1.08-0.15,1.5-0.4c0.42-0.34,0.67-0.83,0.99-1.14c0.32-0.31,0.75-0.43,1.14-0.59 c0.39-0.16,0.82-0.26,1.14-0.59c0.35-0.35,0.57-0.86,0.99-1.14c0.42-0.28,0.99-0.34,1.5-0.34c0.51,0,1.08,0.06,1.5,0.34 c0,0-0.43-0.99-0.64-1.48c-0.21-0.49-0.32-1.1-0.32-1.65c0-0.55,0-1.13,0-1.68c0-0.55,0.11-1.16,0.32-1.65 c0.21-0.49,0.64-1.48,0.64-1.48c-0.42,0.28-0.99,0.34-1.5,0.34C15.61,8.69,15.04,8.63,14.62,8.35z M12,14c-1.1,0-2-0.9-2-2 c0-1.1,0.9-2,2-2s2,0.9,2,2C14,13.1,13.1,14,12,14z" />
                         </svg>
                     </div>
                     <span class="text-xs font-mono text-gray-500 dark:text-gray-400">Linux</span>
@@ -445,8 +588,10 @@
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <!-- Web Development -->
-                <div class="group p-8 bg-background-light dark:bg-background-dark rounded-lg border border-gray-200 dark:border-gray-800 hover:border-accent dark:hover:border-accent transition-all hover:shadow-xl">
-                    <div class="w-14 h-14 bg-blue-50 dark:bg-blue-950/30 rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                <div
+                    class="group p-8 bg-background-light dark:bg-background-dark rounded-lg border border-gray-200 dark:border-gray-800 hover:border-accent dark:hover:border-accent transition-all hover:shadow-xl">
+                    <div
+                        class="w-14 h-14 bg-blue-50 dark:bg-blue-950/30 rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                         <span class="material-icons-round text-3xl text-accent">code</span>
                     </div>
                     <h3 class="font-display text-xl font-bold mb-3">Web Development</h3>
@@ -461,8 +606,10 @@
                 </div>
 
                 <!-- Mobile Development -->
-                <div class="group p-8 bg-background-light dark:bg-background-dark rounded-lg border border-gray-200 dark:border-gray-800 hover:border-accent dark:hover:border-accent transition-all hover:shadow-xl">
-                    <div class="w-14 h-14 bg-blue-50 dark:bg-blue-950/30 rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                <div
+                    class="group p-8 bg-background-light dark:bg-background-dark rounded-lg border border-gray-200 dark:border-gray-800 hover:border-accent dark:hover:border-accent transition-all hover:shadow-xl">
+                    <div
+                        class="w-14 h-14 bg-blue-50 dark:bg-blue-950/30 rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                         <span class="material-icons-round text-3xl text-accent">smartphone</span>
                     </div>
                     <h3 class="font-display text-xl font-bold mb-3">Mobile Apps</h3>
@@ -470,14 +617,17 @@
                         Aplikacje mobilne iOS i Android. React Native, Flutter - wydajne i native'owe doświadczenia.
                     </p>
                     <div class="flex flex-wrap gap-2">
-                        <span class="text-xs px-2 py-1 bg-gray-100 dark:bg-gray-800 rounded font-mono">React Native</span>
+                        <span class="text-xs px-2 py-1 bg-gray-100 dark:bg-gray-800 rounded font-mono">React
+                            Native</span>
                         <span class="text-xs px-2 py-1 bg-gray-100 dark:bg-gray-800 rounded font-mono">Flutter</span>
                     </div>
                 </div>
 
                 <!-- Backend & API -->
-                <div class="group p-8 bg-background-light dark:bg-background-dark rounded-lg border border-gray-200 dark:border-gray-800 hover:border-accent dark:hover:border-accent transition-all hover:shadow-xl">
-                    <div class="w-14 h-14 bg-blue-50 dark:bg-blue-950/30 rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                <div
+                    class="group p-8 bg-background-light dark:bg-background-dark rounded-lg border border-gray-200 dark:border-gray-800 hover:border-accent dark:hover:border-accent transition-all hover:shadow-xl">
+                    <div
+                        class="w-14 h-14 bg-blue-50 dark:bg-blue-950/30 rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                         <span class="material-icons-round text-3xl text-accent">storage</span>
                     </div>
                     <h3 class="font-display text-xl font-bold mb-3">Backend & API</h3>
@@ -497,7 +647,8 @@
     <!-- Contact Section -->
     <section id="kontakt" class="py-20 bg-surface-light dark:bg-surface-dark">
         <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="bg-background-light dark:bg-background-dark p-8 md:p-12 rounded-lg border border-gray-200 dark:border-gray-800 shadow-xl">
+            <div
+                class="bg-background-light dark:bg-background-dark p-8 md:p-12 rounded-lg border border-gray-200 dark:border-gray-800 shadow-xl">
                 <h2 class="font-display text-3xl font-bold mb-2">Porozmawiajmy o projekcie</h2>
                 <p class="text-gray-600 dark:text-gray-400 mb-8 font-mono text-sm">// Masz pomysł? Skontaktuj się</p>
 
@@ -505,29 +656,27 @@
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div>
                             <label class="block text-sm font-semibold mb-2" for="name">Imię</label>
-                            <input class="w-full bg-surface-light dark:bg-surface-dark border border-gray-300 dark:border-gray-700 rounded px-4 py-3 focus:border-accent focus:ring-1 focus:ring-accent transition-colors"
-                                   id="name"
-                                   placeholder="Jan Kowalski"
-                                   type="text">
+                            <input
+                                class="w-full bg-surface-light dark:bg-surface-dark border border-gray-300 dark:border-gray-700 rounded px-4 py-3 focus:border-accent focus:ring-1 focus:ring-accent transition-colors"
+                                id="name" placeholder="Jan Kowalski" type="text">
                         </div>
                         <div>
                             <label class="block text-sm font-semibold mb-2" for="email">Email</label>
-                            <input class="w-full bg-surface-light dark:bg-surface-dark border border-gray-300 dark:border-gray-700 rounded px-4 py-3 focus:border-accent focus:ring-1 focus:ring-accent transition-colors"
-                                   id="email"
-                                   placeholder="jan@example.com"
-                                   type="email">
+                            <input
+                                class="w-full bg-surface-light dark:bg-surface-dark border border-gray-300 dark:border-gray-700 rounded px-4 py-3 focus:border-accent focus:ring-1 focus:ring-accent transition-colors"
+                                id="email" placeholder="jan@example.com" type="email">
                         </div>
                     </div>
                     <div>
                         <label class="block text-sm font-semibold mb-2" for="message">Wiadomość</label>
-                        <textarea class="w-full bg-surface-light dark:bg-surface-dark border border-gray-300 dark:border-gray-700 rounded px-4 py-3 focus:border-accent focus:ring-1 focus:ring-accent transition-colors"
-                                  id="message"
-                                  placeholder="Opowiedz o swoim projekcie..."
-                                  rows="5"></textarea>
+                        <textarea
+                            class="w-full bg-surface-light dark:bg-surface-dark border border-gray-300 dark:border-gray-700 rounded px-4 py-3 focus:border-accent focus:ring-1 focus:ring-accent transition-colors"
+                            id="message" placeholder="Opowiedz o swoim projekcie..." rows="5"></textarea>
                     </div>
                     <div class="pt-4">
-                        <button class="w-full md:w-auto bg-accent text-white font-mono px-8 py-4 rounded hover:bg-blue-600 transition-colors shadow-lg hover:shadow-xl"
-                                type="submit">
+                        <button
+                            class="w-full md:w-auto bg-accent text-white font-mono px-8 py-4 rounded hover:bg-blue-600 transition-colors shadow-lg hover:shadow-xl"
+                            type="submit">
                             Wyślij wiadomość →
                         </button>
                     </div>
@@ -545,23 +694,49 @@
                     <p class="text-gray-500 text-xs mt-1 font-mono">© 2024 Wszystkie prawa zastrzeżone</p>
                 </div>
                 <div class="flex space-x-6">
-                    <a class="text-gray-400 hover:text-white transition-colors" href="#"><span class="material-icons-round">code</span></a>
-                    <a class="text-gray-400 hover:text-white transition-colors" href="#"><span class="material-icons-round">email</span></a>
-                    <a class="text-gray-400 hover:text-white transition-colors" href="#"><span class="material-icons-round">work</span></a>
+                    <a class="text-gray-400 hover:text-white transition-colors" href="#"><span
+                            class="material-icons-round">code</span></a>
+                    <a class="text-gray-400 hover:text-white transition-colors" href="#"><span
+                            class="material-icons-round">email</span></a>
+                    <a class="text-gray-400 hover:text-white transition-colors" href="#"><span
+                            class="material-icons-round">work</span></a>
                 </div>
             </div>
         </div>
     </footer>
 
     <script>
-        // Dark mode toggle
+        // Theme management
+        const html = document.documentElement;
+        const themeToggle = document.getElementById('themeToggle');
         const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+        // Set initial theme based on system preference
         if (prefersDark) {
-            document.documentElement.classList.add('dark');
+            html.classList.add('dark');
         }
 
+        // Update toggle icon based on current theme
+        function updateThemeIcon() {
+            const isDark = html.classList.contains('dark');
+            const icon = themeToggle.querySelector('.material-icons-round');
+            icon.textContent = isDark ? 'light_mode' : 'dark_mode';
+        }
+
+        // Toggle theme
+        function toggleTheme() {
+            html.classList.toggle('dark');
+            updateThemeIcon();
+        }
+
+        // Initialize icon
+        updateThemeIcon();
+
+        // Add click listener
+        themeToggle.addEventListener('click', toggleTheme);
+
         // WebP sequence animation with crossfade loop with lazy loading
-        (function() {
+        (function () {
             const canvas = document.getElementById('heroCanvas');
             const ctx = canvas.getContext('2d');
             const frameCount = 192;
@@ -732,4 +907,5 @@
     </script>
 
 </body>
+
 </html>
