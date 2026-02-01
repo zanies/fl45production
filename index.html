@@ -78,7 +78,6 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -100,18 +99,12 @@
             font-family: 'Space Grotesk', sans-serif;
             font-size: 2rem;
             font-weight: 700;
-            color: white;
             margin-bottom: 2rem;
-        }
-
-        .preloader-logo .accent {
-            color: #3b82f6;
         }
 
         .progress-container {
             width: 300px;
             height: 4px;
-            background: #252526;
             border-radius: 2px;
             overflow: hidden;
             position: relative;
@@ -129,7 +122,6 @@
             margin-top: 1rem;
             font-family: 'JetBrains Mono', monospace;
             font-size: 0.875rem;
-            color: #9ca3af;
         }
 
         .loading-dots::after {
@@ -540,16 +532,16 @@
 <body class="bg-background-light dark:bg-background-dark text-gray-900 dark:text-gray-100 font-body antialiased">
 
     <!-- Preloader -->
-    <div id="preloader" class="preloader">
+    <div id="preloader" class="preloader bg-gradient-to-br from-gray-50 via-gray-100 to-gray-200 dark:from-gray-900 dark:via-background-dark dark:to-blue-950">
         <div class="preloader-content">
-            <div class="preloader-logo" style="font-family: 'Exo 2', sans-serif;">
+            <div class="preloader-logo text-gray-900 dark:text-white" style="font-family: 'Exo 2', sans-serif;">
                 <span>FL45</span>
-                <span class="accent"> Production</span>
+                <span class="accent text-accent"> Production</span>
             </div>
-            <div class="progress-container">
+            <div class="progress-container bg-gray-200 dark:bg-gray-800">
                 <div id="progressBar" class="progress-bar"></div>
             </div>
-            <div class="progress-text">
+            <div class="progress-text text-gray-600 dark:text-gray-400">
                 <span class="loading-dots">Ładowanie zasobów</span>
                 <span id="progressPercent">0%</span>
             </div>
