@@ -3,7 +3,7 @@ export function initCanvasAnimation() {
     const ctx = canvas.getContext('2d');
 
     // Detect mobile device for ping-pong effect
-    const isMobile = window.innerWidth < 768;
+    let isMobile = window.innerWidth < 768;
 
     const frameCount = 192;
     const initialLoadCount = 20;
@@ -25,6 +25,15 @@ export function initCanvasAnimation() {
         const rect = canvas.getBoundingClientRect();
         canvas.width = rect.width;
         canvas.height = rect.height;
+        
+        // Update mobile state
+        isMobile = window.innerWidth < 768;
+
+        // Try to redraw immediately to prevent flashing
+        // Check if drawFrame is defined (it's hoisted but good to be safe) and images exist
+        if (typeof drawFrame === 'function' && images.length > 0) {
+            drawFrame(currentFrame);
+        }
     }
     resizeCanvas();
     window.addEventListener('resize', resizeCanvas);
