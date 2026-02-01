@@ -596,9 +596,15 @@ ${message}`;
             .then(data => {
                 if (data && typeof data.count !== 'undefined') {
                     // Update the counter
-                    counterElement.innerText = `Odwiedziny: ${data.count}`;
+                    counterElement.innerText = `${data.count}`;
+                    
                     // Fade in effect
-                    container.classList.remove('opacity-0');
+                    const container = counterElement.closest('.opacity-0') || counterElement.parentElement;
+                    if (container) {
+                        setTimeout(() => {
+                            container.classList.remove('opacity-0');
+                        }, 500);
+                    }
                 }
             })
             .catch(error => {
