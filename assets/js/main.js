@@ -493,13 +493,24 @@
                     sectionObserver.observe(section);
                 }
             });
-
-            // Also update on click for immediate feedback
-            navLinks.forEach(link => {
-                link.addEventListener('click', function (e) {
-                    // Remove active from all, add to clicked
-                    navLinks.forEach(l => l.classList.remove('active'));
-                    this.classList.add('active');
-                });
-            });
         })();
+
+        // Global smooth scrolling for all anchor links without updating URL hash
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    e.preventDefault(); // Stop the browser from updating the URL
+                    targetElement.scrollIntoView({ behavior: 'smooth' });
+                    
+                    // Update active state for nav links immediately
+                    if (this.classList.contains('nav-link')) {
+                        document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+                        this.classList.add('active');
+                    }
+                }
+            });
+        });
