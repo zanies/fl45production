@@ -575,3 +575,35 @@ ${message}`;
         }, 3000);
     });
 })();
+
+// Simple Visitor Counter (No registration required)
+(function() {
+    const counterElement = document.getElementById('visit-counter');
+    const container = counterElement?.parentElement;
+    
+    if (counterElement && container) {
+        // Using visitor.6developer.com - free, no key, uses domain as ID
+        // Note: This API counts unique visits per IP/day typically
+        const apiUrl = 'https://visitor.6developer.com/visit?domain=fl45.pl';
+        
+        fetch(apiUrl)
+            .then(response => {
+                if (!response.ok) throw new Error('Network response was not ok');
+                return response.json();
+            })
+            .then(data => {
+                if (data && typeof data.totalCount !== 'undefined') {
+                    // Update the counter
+                    counterElement.innerText = `Odwiedziny: ${data.totalCount}`;
+                    // Fade in effect
+                    container.classList.remove('opacity-0');
+                }
+            })
+            .catch(error => {
+                console.log('Visitor counter unavailable:', error);
+                // Optionally hide the element or leave it hidden (opacity-0)
+                // If we want to hide it completely on error:
+                // container.style.display = 'none';
+            });
+    }
+})();
