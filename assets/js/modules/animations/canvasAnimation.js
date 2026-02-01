@@ -29,13 +29,12 @@ export function initCanvasAnimation() {
     resizeCanvas();
     window.addEventListener('resize', resizeCanvas);
 
-    function updateProgress() {
-        if (!initialLoadComplete) {
-            const percent = Math.round((imagesLoaded / initialLoadCount) * 100);
-            progressBar.style.width = percent + '%';
-            progressPercent.textContent = percent + '%';
-        }
-    }
+    // Disable CSS transition for JS control
+    if (progressBar) progressBar.style.transition = 'none';
+
+    // Preloader animation variables
+    const minPreloaderDuration = 3000; // Minimum 3 seconds
+    const preloaderStartTime = performance.now();
 
     function hidePreloader() {
         setTimeout(() => {
@@ -62,18 +61,53 @@ export function initCanvasAnimation() {
         img.src = `animation/frame_${String(index + 1).padStart(4, '0')}.webp`;
     }
 
+    // Start loading initial frames
     for (let i = 0; i < initialLoadCount; i++) {
         loadImage(i, () => {
             imagesLoaded++;
-            updateProgress();
-            if (imagesLoaded === initialLoadCount) {
-                initialLoadComplete = true;
-                hidePreloader();
-                startAnimation();
-                loadRemainingFrames();
-            }
         });
     }
+
+    // Progress bar animation loop
+    function animatePreloader() {
+        if (initialLoadComplete) return;
+
+        const currentTime = performance.now();
+        const elapsed = currentTime - preloaderStartTime;
+
+        // Calculate progress based on real loading
+        const realProgress = (imagesLoaded / initialLoadCount) * 100;
+
+        // Calculate progress based on time (linear interpolation)
+        const timeProgress = (elapsed / minPreloaderDuration) * 100;
+
+        // Use the minimum of both
+        let displayedProgress = Math.min(realProgress, timeProgress);
+
+        // Clamp to 100
+        if (displayedProgress > 100) displayedProgress = 100;
+
+        // Update UI
+        if (progressBar) progressBar.style.width = displayedProgress + '%';
+        if (progressPercent) progressPercent.textContent = Math.round(displayedProgress) + '%';
+
+        // Check completion
+        if (imagesLoaded === initialLoadCount && elapsed >= minPreloaderDuration) {
+            initialLoadComplete = true;
+            // Ensure we show 100% at the end
+            if (progressBar) progressBar.style.width = '100%';
+            if (progressPercent) progressPercent.textContent = '100%';
+
+            hidePreloader();
+            startAnimation();
+            loadRemainingFrames();
+        } else {
+            requestAnimationFrame(animatePreloader);
+        }
+    }
+
+    // Start the preloader animation loop
+    requestAnimationFrame(animatePreloader);
 
     function loadRemainingFrames() {
         for (let i = initialLoadCount; i < frameCount; i++) {
