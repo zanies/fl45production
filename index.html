@@ -6,19 +6,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Permissions-Policy" content="autoplay=(self)">
     <title>FL45 Production | Developer & Designer</title>
-    <meta name="description" content="FL45 Production - Profesjonalne tworzenie aplikacji mobilnych i webowych. Developer & Designer specjalizujący się w Flutter, React i nowoczesnych technologiach.">
+    <meta name="description"
+        content="FL45 Production - Profesjonalne tworzenie aplikacji mobilnych i webowych. Developer & Designer specjalizujący się w Flutter, React i nowoczesnych technologiach.">
     <meta name="robots" content="index, follow">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:title" content="FL45 Production | Developer & Designer">
-    <meta property="og:description" content="Profesjonalne tworzenie aplikacji mobilnych i webowych. Specjalizacja: Flutter, React, nowoczesne technologie.">
+    <meta property="og:description"
+        content="Profesjonalne tworzenie aplikacji mobilnych i webowych. Specjalizacja: Flutter, React, nowoczesne technologie.">
     <meta property="og:site_name" content="FL45 Production">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="FL45 Production | Developer & Designer">
-    <meta name="twitter:description" content="Profesjonalne tworzenie aplikacji mobilnych i webowych. Specjalizacja: Flutter, React, nowoczesne technologie.">
+    <meta name="twitter:description"
+        content="Profesjonalne tworzenie aplikacji mobilnych i webowych. Specjalizacja: Flutter, React, nowoczesne technologie.">
 
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
@@ -366,7 +369,19 @@
         }
 
         /* Smooth theme transitions */
-        body, section, nav, header, footer, div, button, a, h1, h2, h3, p, span {
+        body,
+        section,
+        nav,
+        header,
+        footer,
+        div,
+        button,
+        a,
+        h1,
+        h2,
+        h3,
+        p,
+        span {
             transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
         }
 
@@ -471,6 +486,54 @@
             border-radius: 50%;
             box-shadow: 0 0 4px rgba(26, 77, 46, 0.8);
         }
+
+        /* Smooth scroll behavior */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Navigation link styles */
+        .nav-link {
+            position: relative;
+            padding: 0.5rem 1rem;
+            border-radius: 0.25rem;
+            /* rounded to match button */
+            transition: all 0.2s ease;
+        }
+
+        /* Hover state - same as Contact button default state */
+        .nav-link:hover {
+            background-color: #3b82f6;
+            color: white !important;
+        }
+
+        .dark .nav-link:hover {
+            background-color: #3b82f6;
+            color: white !important;
+        }
+
+        /* Active section indicator */
+        .nav-link.active {
+            background-color: #3b82f6;
+            color: white !important;
+            font-weight: 600;
+        }
+
+        /* Active link hover - darker blue like Contact button hover */
+        .nav-link.active:hover {
+            background-color: #2563eb;
+            color: white !important;
+        }
+
+        .dark .nav-link.active {
+            background-color: #3b82f6;
+            color: white !important;
+        }
+
+        .dark .nav-link.active:hover {
+            background-color: #2563eb;
+            color: white !important;
+        }
     </style>
 </head>
 
@@ -504,10 +567,10 @@
                         <span class="accent"> Production</span><span class="text-gray-900 dark:text-white">.</span>
                     </a>
                 </div>
-                <div class="hidden md:flex items-center space-x-8 font-mono text-sm">
-                    <a href="#o-mnie" class="hover:text-accent transition-colors">./o-mnie</a>
-                    <a href="#uslugi" class="hover:text-accent transition-colors">./usługi</a>
-                    <a href="#projekty" class="hover:text-accent transition-colors">./projekty</a>
+                <div class="hidden md:flex items-center space-x-4 font-mono text-sm">
+                    <a href="#uslugi" class="nav-link" data-section="uslugi">./usługi</a>
+                    <a href="#projekty" class="nav-link" data-section="projekty">./projekty</a>
+                    <a href="#cennik" class="nav-link" data-section="cennik">./cennik</a>
                     <button id="themeToggle"
                         class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
                         aria-label="Toggle theme">
@@ -882,7 +945,8 @@
                                 <div class="phone-frame">
                                     <!-- Screen -->
                                     <div class="phone-screen">
-                                        <img src="assets/Screenshot_1769897410.webp" alt="FL ScanApp Screenshot" class="w-full h-full object-cover object-center">
+                                        <img src="assets/Screenshot_1769897410.webp" alt="FL ScanApp Screenshot"
+                                            class="w-full h-full object-cover object-center">
                                     </div>
                                     <!-- Notch/Camera -->
                                     <div class="phone-notch"></div>
@@ -891,17 +955,18 @@
                         </div>
                         <h4 class="font-display text-lg font-bold mb-2">FL ScanApp</h4>
                         <p class="text-gray-600 dark:text-gray-400 text-sm mb-4 line-clamp-4">
-                            Elektroniczny obieg dokumentów. Skanuj smartfonem, konwertuj do PDF i wysyłaj emailem. Panel webowy do zarządzania z dowolnego miejsca.
+                            Elektroniczny obieg dokumentów. Skanuj smartfonem, konwertuj do PDF i wysyłaj emailem. Panel
+                            webowy do zarządzania z dowolnego miejsca.
                         </p>
                         <div class="flex flex-wrap gap-2">
                             <span
                                 class="text-xs px-2 py-1 bg-gray-100 dark:bg-gray-800 rounded font-mono">Flutter</span>
-                            <span
-                                class="text-xs px-2 py-1 bg-gray-100 dark:bg-gray-800 rounded font-mono">Google ML Kit</span>
-                            <span
-                                class="text-xs px-2 py-1 bg-gray-100 dark:bg-gray-800 rounded font-mono">Mobile</span>
+                            <span class="text-xs px-2 py-1 bg-gray-100 dark:bg-gray-800 rounded font-mono">Google ML
+                                Kit</span>
+                            <span class="text-xs px-2 py-1 bg-gray-100 dark:bg-gray-800 rounded font-mono">Mobile</span>
                         </div>
-                        <a href="https://play.google.com/store/apps/details?id=com.zanies.freelogscan" target="_blank" rel="noopener noreferrer"
+                        <a href="https://play.google.com/store/apps/details?id=com.zanies.freelogscan" target="_blank"
+                            rel="noopener noreferrer"
                             class="absolute bottom-4 right-4 w-10 h-10 bg-accent hover:bg-blue-600 rounded-full flex items-center justify-center transition-colors shadow-lg hover:shadow-xl">
                             <span class="material-icons-round text-white text-xl">open_in_new</span>
                         </a>
@@ -916,7 +981,8 @@
                                 <div class="phone-frame">
                                     <!-- Screen -->
                                     <div class="phone-screen">
-                                        <img src="assets/finetruck.webp" alt="FineTruck DE Screenshot" class="w-full h-full object-cover object-center">
+                                        <img src="assets/finetruck.webp" alt="FineTruck DE Screenshot"
+                                            class="w-full h-full object-cover object-center">
                                     </div>
                                     <!-- Notch/Camera -->
                                     <div class="phone-notch"></div>
@@ -925,14 +991,18 @@
                         </div>
                         <h4 class="font-display text-lg font-bold mb-2">FineTruck DE</h4>
                         <p class="text-gray-600 dark:text-gray-400 text-sm mb-4 line-clamp-4">
-                            Kalkulator mandatów drogowych w Niemczech. Błyskawiczne obliczenia kar na podstawie katalogu 2026. Tryby dla aut osobowych i ciężarowych.
+                            Kalkulator mandatów drogowych w Niemczech. Błyskawiczne obliczenia kar na podstawie katalogu
+                            2026. Tryby dla aut osobowych i ciężarowych.
                         </p>
                         <div class="flex flex-wrap gap-2">
-                            <span class="text-xs px-2 py-1 bg-gray-100 dark:bg-gray-800 rounded font-mono">Flutter</span>
+                            <span
+                                class="text-xs px-2 py-1 bg-gray-100 dark:bg-gray-800 rounded font-mono">Flutter</span>
                             <span class="text-xs px-2 py-1 bg-gray-100 dark:bg-gray-800 rounded font-mono">Mobile</span>
-                            <span class="text-xs px-2 py-1 bg-gray-100 dark:bg-gray-800 rounded font-mono">Android</span>
+                            <span
+                                class="text-xs px-2 py-1 bg-gray-100 dark:bg-gray-800 rounded font-mono">Android</span>
                         </div>
-                        <a href="https://play.google.com/store/apps/details?id=com.zanies.truckfine_de" target="_blank" rel="noopener noreferrer"
+                        <a href="https://play.google.com/store/apps/details?id=com.zanies.truckfine_de" target="_blank"
+                            rel="noopener noreferrer"
                             class="absolute bottom-4 right-4 w-10 h-10 bg-accent hover:bg-blue-600 rounded-full flex items-center justify-center transition-colors shadow-lg hover:shadow-xl">
                             <span class="material-icons-round text-white text-xl">open_in_new</span>
                         </a>
@@ -947,7 +1017,8 @@
                                 <div class="phone-frame">
                                     <!-- Screen -->
                                     <div class="phone-screen">
-                                        <img src="assets/tankmeldung.webp" alt="Tankmeldung APP Screenshot" class="w-full h-full object-cover object-center">
+                                        <img src="assets/tankmeldung.webp" alt="Tankmeldung APP Screenshot"
+                                            class="w-full h-full object-cover object-center">
                                     </div>
                                     <!-- Notch/Camera -->
                                     <div class="phone-notch"></div>
@@ -956,11 +1027,14 @@
                         </div>
                         <h4 class="font-display text-lg font-bold mb-2">Tankmeldung APP</h4>
                         <p class="text-gray-600 dark:text-gray-400 text-sm mb-4 line-clamp-4">
-                            Aplikacja wewnętrzna firmowa. Automatyzacja procesu dodawania użytkowników do sieci Tankpool24. Digitalizacja kart paliwowych.
+                            Aplikacja wewnętrzna firmowa. Automatyzacja procesu dodawania użytkowników do sieci
+                            Tankpool24. Digitalizacja kart paliwowych.
                         </p>
                         <div class="flex flex-wrap gap-2">
-                            <span class="text-xs px-2 py-1 bg-gray-100 dark:bg-gray-800 rounded font-mono">Flutter</span>
-                            <span class="text-xs px-2 py-1 bg-gray-100 dark:bg-gray-800 rounded font-mono">Firebase</span>
+                            <span
+                                class="text-xs px-2 py-1 bg-gray-100 dark:bg-gray-800 rounded font-mono">Flutter</span>
+                            <span
+                                class="text-xs px-2 py-1 bg-gray-100 dark:bg-gray-800 rounded font-mono">Firebase</span>
                             <span class="text-xs px-2 py-1 bg-gray-100 dark:bg-gray-800 rounded font-mono">Mobile</span>
                         </div>
                     </div>
@@ -974,7 +1048,8 @@
                                 <div class="phone-frame">
                                     <!-- Screen -->
                                     <div class="phone-screen">
-                                        <img src="assets/givve.webp" alt="Givvestaller Screenshot" class="w-full h-full object-cover object-center">
+                                        <img src="assets/givve.webp" alt="Givvestaller Screenshot"
+                                            class="w-full h-full object-cover object-center">
                                     </div>
                                     <!-- Notch/Camera -->
                                     <div class="phone-notch"></div>
@@ -983,11 +1058,14 @@
                         </div>
                         <h4 class="font-display text-lg font-bold mb-2">Givvestaller</h4>
                         <p class="text-gray-600 dark:text-gray-400 text-sm mb-4 line-clamp-4">
-                            Instalator dla aplikacji Givve Card. Umożliwia instalację aplikacji niedostępnej w polskim Google Play. Bezpieczna instalacja z oficjalnych źródeł.
+                            Instalator dla aplikacji Givve Card. Umożliwia instalację aplikacji niedostępnej w polskim
+                            Google Play. Bezpieczna instalacja z oficjalnych źródeł.
                         </p>
                         <div class="flex flex-wrap gap-2">
-                            <span class="text-xs px-2 py-1 bg-gray-100 dark:bg-gray-800 rounded font-mono">Flutter</span>
-                            <span class="text-xs px-2 py-1 bg-gray-100 dark:bg-gray-800 rounded font-mono">Android</span>
+                            <span
+                                class="text-xs px-2 py-1 bg-gray-100 dark:bg-gray-800 rounded font-mono">Flutter</span>
+                            <span
+                                class="text-xs px-2 py-1 bg-gray-100 dark:bg-gray-800 rounded font-mono">Android</span>
                             <span class="text-xs px-2 py-1 bg-gray-100 dark:bg-gray-800 rounded font-mono">APK</span>
                         </div>
                     </div>
@@ -1006,16 +1084,19 @@
                     <div
                         class="card-shine group p-6 bg-background-light dark:bg-background-dark rounded-lg border border-gray-200 dark:border-gray-800 hover:border-accent dark:hover:border-accent transition-all hover:shadow-xl relative">
                         <div class="aspect-video bg-gray-200 dark:bg-gray-800 rounded-md mb-6 overflow-hidden relative">
-                            <img src="assets/flscanapp-web.webp" alt="FL ScanApp Website Screenshot" class="w-full h-full object-cover object-top">
+                            <img src="assets/flscanapp-web.webp" alt="FL ScanApp Website Screenshot"
+                                class="w-full h-full object-cover object-top">
                         </div>
                         <h4 class="font-display text-lg font-bold mb-2">FL ScanApp Website</h4>
                         <p class="text-gray-600 dark:text-gray-400 text-sm mb-4 line-clamp-3">
-                            Strona promocyjna aplikacji FL ScanApp. Prezentacja funkcji, cenniki i informacje o elektronicznym obiegu dokumentów.
+                            Strona promocyjna aplikacji FL ScanApp. Prezentacja funkcji, cenniki i informacje o
+                            elektronicznym obiegu dokumentów.
                         </p>
                         <div class="flex flex-wrap gap-2">
                             <span class="text-xs px-2 py-1 bg-gray-100 dark:bg-gray-800 rounded font-mono">HTML</span>
                             <span class="text-xs px-2 py-1 bg-gray-100 dark:bg-gray-800 rounded font-mono">CSS</span>
-                            <span class="text-xs px-2 py-1 bg-gray-100 dark:bg-gray-800 rounded font-mono">JavaScript</span>
+                            <span
+                                class="text-xs px-2 py-1 bg-gray-100 dark:bg-gray-800 rounded font-mono">JavaScript</span>
                         </div>
                         <a href="https://flscanapp.de" target="_blank" rel="noopener noreferrer"
                             class="absolute bottom-4 right-4 w-10 h-10 bg-accent hover:bg-blue-600 rounded-full flex items-center justify-center transition-colors shadow-lg hover:shadow-xl">
@@ -1027,16 +1108,19 @@
                     <div
                         class="card-shine group p-6 bg-background-light dark:bg-background-dark rounded-lg border border-gray-200 dark:border-gray-800 hover:border-accent dark:hover:border-accent transition-all hover:shadow-xl relative">
                         <div class="aspect-video bg-gray-200 dark:bg-gray-800 rounded-md mb-6 overflow-hidden relative">
-                            <img src="assets/finetruck-web.webp" alt="FineTruck DE Website Screenshot" class="w-full h-full object-cover object-top">
+                            <img src="assets/finetruck-web.webp" alt="FineTruck DE Website Screenshot"
+                                class="w-full h-full object-cover object-top">
                         </div>
                         <h4 class="font-display text-lg font-bold mb-2">FineTruck DE Website</h4>
                         <p class="text-gray-600 dark:text-gray-400 text-sm mb-4 line-clamp-3">
-                            Strona aplikacji FineTruck - kalkulator mandatów drogowych w Niemczech. Informacje o funkcjach, taryfikator 2026 i linki do pobrania.
+                            Strona aplikacji FineTruck - kalkulator mandatów drogowych w Niemczech. Informacje o
+                            funkcjach, taryfikator 2026 i linki do pobrania.
                         </p>
                         <div class="flex flex-wrap gap-2">
                             <span class="text-xs px-2 py-1 bg-gray-100 dark:bg-gray-800 rounded font-mono">HTML</span>
                             <span class="text-xs px-2 py-1 bg-gray-100 dark:bg-gray-800 rounded font-mono">CSS</span>
-                            <span class="text-xs px-2 py-1 bg-gray-100 dark:bg-gray-800 rounded font-mono">JavaScript</span>
+                            <span
+                                class="text-xs px-2 py-1 bg-gray-100 dark:bg-gray-800 rounded font-mono">JavaScript</span>
                         </div>
                         <a href="https://finetruck.de" target="_blank" rel="noopener noreferrer"
                             class="absolute bottom-4 right-4 w-10 h-10 bg-accent hover:bg-blue-600 rounded-full flex items-center justify-center transition-colors shadow-lg hover:shadow-xl">
@@ -1048,16 +1132,19 @@
                     <div
                         class="card-shine group p-6 bg-background-light dark:bg-background-dark rounded-lg border border-gray-200 dark:border-gray-800 hover:border-accent dark:hover:border-accent transition-all hover:shadow-xl relative">
                         <div class="aspect-video bg-gray-200 dark:bg-gray-800 rounded-md mb-6 overflow-hidden relative">
-                            <img src="assets/archiv-flscanapp-web.webp" alt="FL ScanApp Archiv Screenshot" class="w-full h-full object-cover object-top">
+                            <img src="assets/archiv-flscanapp-web.webp" alt="FL ScanApp Archiv Screenshot"
+                                class="w-full h-full object-cover object-top">
                         </div>
                         <h4 class="font-display text-lg font-bold mb-2">FL ScanApp Archiv</h4>
                         <p class="text-gray-600 dark:text-gray-400 text-sm mb-4 line-clamp-3">
-                            Panel webowy i archiwum wysłanych dokumentów do aplikacji FL ScanApp. Backend serwer Flask z pełnym dostępem do historii.
+                            Panel webowy i archiwum wysłanych dokumentów do aplikacji FL ScanApp. Backend serwer Flask z
+                            pełnym dostępem do historii.
                         </p>
                         <div class="flex flex-wrap gap-2">
                             <span class="text-xs px-2 py-1 bg-gray-100 dark:bg-gray-800 rounded font-mono">Flask</span>
                             <span class="text-xs px-2 py-1 bg-gray-100 dark:bg-gray-800 rounded font-mono">Python</span>
-                            <span class="text-xs px-2 py-1 bg-gray-100 dark:bg-gray-800 rounded font-mono">Backend</span>
+                            <span
+                                class="text-xs px-2 py-1 bg-gray-100 dark:bg-gray-800 rounded font-mono">Backend</span>
                         </div>
                         <a href="https://archiv.flscanapp.de" target="_blank" rel="noopener noreferrer"
                             class="absolute bottom-4 right-4 w-10 h-10 bg-accent hover:bg-blue-600 rounded-full flex items-center justify-center transition-colors shadow-lg hover:shadow-xl">
@@ -1076,14 +1163,17 @@
 
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                     <!-- Bot Card 1 - FL DispoBot Telematyka -->
-                    <div class="card-shine group p-6 bg-background-light dark:bg-background-dark rounded-lg border border-gray-200 dark:border-gray-800 hover:border-accent dark:hover:border-accent transition-all hover:shadow-xl relative">
+                    <div
+                        class="card-shine group p-6 bg-background-light dark:bg-background-dark rounded-lg border border-gray-200 dark:border-gray-800 hover:border-accent dark:hover:border-accent transition-all hover:shadow-xl relative">
                         <div class="aspect-[9/20] mb-6 relative perspective-1000">
                             <div class="phone-mockup-3d group-hover:rotate-y-12 transition-transform duration-500">
                                 <!-- Phone Frame -->
                                 <div class="phone-frame">
                                     <!-- Screen -->
                                     <div class="phone-screen">
-                                        <img src="assets/fldispobot.webp" alt="FL DispoBot - Dane telematyczne ciężarówek" class="w-full h-full object-cover object-center">
+                                        <img src="assets/fldispobot.webp"
+                                            alt="FL DispoBot - Dane telematyczne ciężarówek"
+                                            class="w-full h-full object-cover object-center">
                                     </div>
                                     <!-- Notch/Camera -->
                                     <div class="phone-notch"></div>
@@ -1092,11 +1182,13 @@
                         </div>
                         <h4 class="font-display text-lg font-bold mb-2">FL DispoBot</h4>
                         <p class="text-gray-600 dark:text-gray-400 text-sm mb-4 line-clamp-3">
-                            Bot WhatsApp do zarządzania flotą. Wyświetla na żądanie dane telematyczne ciężarówek: stan licznika, poziom AdBlue, temperatura, lokalizacja GPS i więcej.
+                            Bot WhatsApp do zarządzania flotą. Wyświetla na żądanie dane telematyczne ciężarówek: stan
+                            licznika, poziom AdBlue, temperatura, lokalizacja GPS i więcej.
                         </p>
                         <div class="flex flex-wrap gap-2">
                             <span class="text-xs px-2 py-1 bg-gray-100 dark:bg-gray-800 rounded font-mono">Python</span>
-                            <span class="text-xs px-2 py-1 bg-gray-100 dark:bg-gray-800 rounded font-mono">WhatsApp API</span>
+                            <span class="text-xs px-2 py-1 bg-gray-100 dark:bg-gray-800 rounded font-mono">WhatsApp
+                                API</span>
                             <span class="text-xs px-2 py-1 bg-gray-100 dark:bg-gray-800 rounded font-mono">Flask</span>
                         </div>
                     </div>
@@ -1757,6 +1849,56 @@
                 }, 100);
             }
         }
+
+        // Active section tracking for navigation
+        (function () {
+            const navLinks = document.querySelectorAll('.nav-link[data-section]');
+            const sections = document.querySelectorAll('section[id]');
+
+            if (navLinks.length === 0) return;
+
+            const observerOptions = {
+                root: null,
+                rootMargin: '-20% 0px -60% 0px', // Trigger when section is in upper-middle of viewport
+                threshold: 0
+            };
+
+            function updateActiveLink(sectionId) {
+                navLinks.forEach(link => {
+                    if (link.dataset.section === sectionId) {
+                        link.classList.add('active');
+                    } else {
+                        link.classList.remove('active');
+                    }
+                });
+            }
+
+            const sectionObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        updateActiveLink(entry.target.id);
+                    }
+                });
+            }, observerOptions);
+
+            // Observe all sections with IDs that match nav links
+            sections.forEach(section => {
+                const sectionId = section.id;
+                const hasNavLink = Array.from(navLinks).some(link => link.dataset.section === sectionId);
+                if (hasNavLink) {
+                    sectionObserver.observe(section);
+                }
+            });
+
+            // Also update on click for immediate feedback
+            navLinks.forEach(link => {
+                link.addEventListener('click', function (e) {
+                    // Remove active from all, add to clicked
+                    navLinks.forEach(l => l.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+        })();
     </script>
 
 </body>
