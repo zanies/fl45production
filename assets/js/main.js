@@ -1,3 +1,9 @@
+// Email obfuscation helper
+function getEmail() {
+    const encoded = 'emFuaWVzNzlAZ21haWwuY29t';
+    return atob(encoded);
+}
+
 // Theme management
 const html = document.documentElement;
 const themeToggle = document.getElementById('themeToggle');
@@ -557,7 +563,7 @@ ${message}`;
 
         // Construct mailto link
         // Encodes URI components to ensure special characters don't break the link
-        const mailtoLink = `mailto:zanies79@gmail.com?subject=${encodeURIComponent('FL45 - zapytanie o oferte')}&body=${encodeURIComponent(emailBody)}`;
+        const mailtoLink = `mailto:${getEmail()}?subject=${encodeURIComponent('FL45 - zapytanie o oferte')}&body=${encodeURIComponent(emailBody)}`;
 
         // Open mail client
         window.location.href = mailtoLink;
@@ -579,13 +585,13 @@ ${message}`;
 // Simple Visitor Counter (No registration required)
 (function() {
     const counterElement = document.getElementById('visit-counter');
-    
+
     if (counterElement) {
         // API: visitor.6developer.com (Supports CORS, POST to record visit)
         fetch('https://visitor.6developer.com/visit', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ 
+            body: JSON.stringify({
                 domain: 'fl45.pl',
                 page_path: window.location.pathname,
                 referrer: document.referrer
@@ -598,7 +604,7 @@ ${message}`;
         .then(data => {
             if (data && typeof data.totalCount !== 'undefined') {
                 counterElement.innerText = `${data.totalCount}`;
-                
+
                 // Fade in effect
                 const container = counterElement.closest('.opacity-0') || counterElement.parentElement;
                 if (container) {
@@ -610,6 +616,20 @@ ${message}`;
         })
         .catch(error => {
             console.log('Visitor counter unavailable:', error);
+        });
+    }
+})();
+
+// Obfuscated email link handler
+(function() {
+    const emailLink = document.getElementById('emailLink');
+
+    if (emailLink) {
+        emailLink.addEventListener('click', function(e) {
+            e.preventDefault();
+            const encoded = 'bWFyaXVzei56YW5pZXdza2lAZnJlZXh0aW1lLmRl';
+            const email = atob(encoded);
+            window.location.href = `mailto:${email}`;
         });
     }
 })();
