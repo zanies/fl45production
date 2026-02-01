@@ -1,6 +1,10 @@
 export function initCanvasAnimation() {
     const canvas = document.getElementById('heroCanvas');
     const ctx = canvas.getContext('2d');
+
+    // Detect mobile device for ping-pong effect
+    const isMobile = window.innerWidth < 768;
+
     const frameCount = 192;
     const initialLoadCount = 20;
     const images = [];
@@ -9,6 +13,9 @@ export function initCanvasAnimation() {
     let initialLoadComplete = false;
     let allFramesLoaded = false;
     let backgroundLoadedCount = 0;
+
+    // Animation direction for ping-pong effect on mobile
+    let animationDirection = 1; // 1 = forward, -1 = backward
 
     const preloader = document.getElementById('preloader');
     const progressBar = document.getElementById('progressBar');
@@ -140,7 +147,23 @@ export function initCanvasAnimation() {
                     }
                 }
 
-                currentFrame = (currentFrame + 1) % maxFrame;
+                // Ping-pong animation on mobile, normal loop on desktop
+                if (isMobile) {
+                    currentFrame += animationDirection;
+
+                    // Reverse direction at boundaries
+                    if (currentFrame >= maxFrame - 1) {
+                        animationDirection = -1;
+                        currentFrame = maxFrame - 1;
+                    } else if (currentFrame <= 0) {
+                        animationDirection = 1;
+                        currentFrame = 0;
+                    }
+                } else {
+                    // Normal loop for desktop
+                    currentFrame = (currentFrame + 1) % maxFrame;
+                }
+
                 lastFrameTime = currentTime - (elapsed % frameDuration);
             }
 
