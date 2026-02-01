@@ -579,36 +579,37 @@ ${message}`;
 // Simple Visitor Counter (No registration required)
 (function() {
     const counterElement = document.getElementById('visit-counter');
-    const container = counterElement?.parentElement;
     
-    if (counterElement && container) {
-        // Using api.counterapi.dev - free, no key, simple namespace/key structure
-        const namespace = 'fl45.pl';
-        const key = 'visits';
-        // Endpoint /up increments and returns the new count
-        const apiUrl = `https://api.counterapi.dev/v1/${namespace}/${key}/up`;
-        
-        fetch(apiUrl)
-            .then(response => {
-                if (!response.ok) throw new Error('Network response was not ok');
-                return response.json();
+    if (counterElement) {
+        // API: visitor.6developer.com (Supports CORS, POST to record visit)
+        fetch('https://visitor.6developer.com/visit', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ 
+                domain: 'fl45.pl',
+                page_path: window.location.pathname,
+                referrer: document.referrer
             })
-            .then(data => {
-                if (data && typeof data.count !== 'undefined') {
-                    // Update the counter
-                    counterElement.innerText = `${data.count}`;
-                    
-                    // Fade in effect
-                    const container = counterElement.closest('.opacity-0') || counterElement.parentElement;
-                    if (container) {
-                        setTimeout(() => {
-                            container.classList.remove('opacity-0');
-                        }, 500);
-                    }
+        })
+        .then(response => {
+            if (!response.ok) throw new Error('Network response was not ok');
+            return response.json();
+        })
+        .then(data => {
+            if (data && typeof data.totalCount !== 'undefined') {
+                counterElement.innerText = `${data.totalCount}`;
+                
+                // Fade in effect
+                const container = counterElement.closest('.opacity-0') || counterElement.parentElement;
+                if (container) {
+                    setTimeout(() => {
+                        container.classList.remove('opacity-0');
+                    }, 500);
                 }
-            })
-            .catch(error => {
-                console.log('Visitor counter unavailable:', error);
-            });
+            }
+        })
+        .catch(error => {
+            console.log('Visitor counter unavailable:', error);
+        });
     }
 })();
