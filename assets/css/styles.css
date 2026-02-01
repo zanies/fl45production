@@ -524,3 +524,23 @@
             background-color: #2563eb;
             color: white !important;
         }
+
+        /* 3-step gentle downward bounce animation */
+        @keyframes scrollBounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(12px);
+            }
+            60% {
+                transform: translateY(6px);
+            }
+            70% {
+                transform: translateY(3px);
+            }
+        }
+
+        .animate-scroll-bounce {
+            animation: scrollBounce 2.5s infinite;
+        }
