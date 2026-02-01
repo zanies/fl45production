@@ -582,9 +582,11 @@ ${message}`;
     const container = counterElement?.parentElement;
     
     if (counterElement && container) {
-        // Using visitor.6developer.com - free, no key, uses domain as ID
-        // Note: This API counts unique visits per IP/day typically
-        const apiUrl = 'https://visitor.6developer.com/visit?domain=fl45.pl';
+        // Using api.counterapi.dev - free, no key, simple namespace/key structure
+        const namespace = 'fl45.pl';
+        const key = 'visits';
+        // Endpoint /up increments and returns the new count
+        const apiUrl = `https://api.counterapi.dev/v1/${namespace}/${key}/up`;
         
         fetch(apiUrl)
             .then(response => {
@@ -592,18 +594,15 @@ ${message}`;
                 return response.json();
             })
             .then(data => {
-                if (data && typeof data.totalCount !== 'undefined') {
+                if (data && typeof data.count !== 'undefined') {
                     // Update the counter
-                    counterElement.innerText = `Odwiedziny: ${data.totalCount}`;
+                    counterElement.innerText = `Odwiedziny: ${data.count}`;
                     // Fade in effect
                     container.classList.remove('opacity-0');
                 }
             })
             .catch(error => {
                 console.log('Visitor counter unavailable:', error);
-                // Optionally hide the element or leave it hidden (opacity-0)
-                // If we want to hide it completely on error:
-                // container.style.display = 'none';
             });
     }
 })();
