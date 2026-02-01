@@ -12,10 +12,7 @@ export function initScrollAnimations() {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('visible');
-            } else {
-                // Remove visible class when element leaves viewport
-                // so it can animate again when scrolling back
-                entry.target.classList.remove('visible');
+                observer.unobserve(entry.target);
             }
         });
     }, observerOptions);
