@@ -9,6 +9,7 @@ import { initSmoothScroll } from './modules/features/smoothScroll.js';
 import { initContactForm } from './modules/features/contactForm.js';
 import { initVisitorCounter } from './modules/features/visitorCounter.js';
 import { initEmailLink } from './modules/features/emailLink.js';
+import { selectPackage } from './modules/features/pricing.js';
 
 initTheme();
 initTypewriter();
@@ -21,3 +22,5 @@ initSmoothScroll();
 initContactForm();
 initVisitorCounter();
 initEmailLink();
+
+window.selectPackage = selectPackage;
