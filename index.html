@@ -578,9 +578,19 @@
                         <span class="material-icons-round text-gray-700 dark:text-gray-300">light_mode</span>
                     </button>
                 </div>
-                <button class="md:hidden text-gray-600 dark:text-gray-300">
+                <button id="mobileMenuToggle" class="md:hidden text-gray-600 dark:text-gray-300">
                     <span class="material-icons-round">menu</span>
                 </button>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div id="mobileMenu" class="hidden md:hidden border-t border-gray-200 dark:border-gray-800">
+                <div class="px-4 py-4 space-y-3 font-mono text-sm">
+                    <a href="#uslugi" class="block nav-link py-2" data-section="uslugi">./usługi</a>
+                    <a href="#projekty" class="block nav-link py-2" data-section="projekty">./projekty</a>
+                    <a href="#cennik" class="block nav-link py-2" data-section="cennik">./cennik</a>
+                    <a href="#kontakt" class="block nav-link py-2" data-section="kontakt">./kontakt</a>
+                </div>
             </div>
         </div>
     </nav>
@@ -1846,6 +1856,33 @@
                 }, 100);
             }
         }
+
+        // Mobile menu toggle
+        (function () {
+            const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+            const mobileMenu = document.getElementById('mobileMenu');
+            const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+
+            if (!mobileMenuToggle || !mobileMenu) return;
+
+            // Toggle mobile menu
+            mobileMenuToggle.addEventListener('click', function () {
+                mobileMenu.classList.toggle('hidden');
+
+                // Change icon between menu and close
+                const icon = this.querySelector('.material-icons-round');
+                icon.textContent = mobileMenu.classList.contains('hidden') ? 'menu' : 'close';
+            });
+
+            // Close mobile menu when clicking on a link
+            mobileMenuLinks.forEach(link => {
+                link.addEventListener('click', function () {
+                    mobileMenu.classList.add('hidden');
+                    const icon = mobileMenuToggle.querySelector('.material-icons-round');
+                    icon.textContent = 'menu';
+                });
+            });
+        })();
 
         // Active section tracking for navigation
         (function () {
