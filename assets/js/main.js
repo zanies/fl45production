@@ -526,3 +526,52 @@ document.addEventListener('click', function (e) {
         }
     }
 });
+
+// Contact Form Handler - Opens default mail client
+(function () {
+    const contactForm = document.getElementById('contactForm');
+
+    if (!contactForm) return;
+
+    contactForm.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        // Get form values
+        const name = document.getElementById('name').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const message = document.getElementById('message').value.trim();
+
+        if (!name || !email || !message) {
+            // Basic validation (HTML5 'required' attribute should handle this, but as a fallback)
+            alert('Proszę wypełnić wszystkie pola.');
+            return;
+        }
+
+        // Construct email body
+        // We include the sender's details in the body since 'mailto' doesn't support setting 'From' header security-wise
+        const emailBody = `Imię: ${name}
+Email: ${email}
+
+Wiadomość:
+${message}`;
+
+        // Construct mailto link
+        // Encodes URI components to ensure special characters don't break the link
+        const mailtoLink = `mailto:zanies79@gmail.com?subject=${encodeURIComponent('FL45 - zapytanie o oferte')}&body=${encodeURIComponent(emailBody)}`;
+
+        // Open mail client
+        window.location.href = mailtoLink;
+
+        // Optional: Show feedback
+        const button = contactForm.querySelector('button[type="submit"]');
+        const originalText = button.textContent;
+
+        button.textContent = 'Otwieranie programu pocztowego...';
+        button.disabled = true;
+
+        setTimeout(() => {
+            button.textContent = originalText;
+            button.disabled = false;
+        }, 3000);
+    });
+})();
